@@ -1,0 +1,46 @@
+﻿<Window x:Class="MeiPassword.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MeiPassword"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="Login" Height="450" Width="504.5" Background="Transparent" Foreground="Transparent">
+    <Border BorderThickness="5,10,15,20" Background="#FF424242" Padding="5" CornerRadius="15" BorderBrush="#FF424242" OpacityMask="#FF424242">
+        <Grid Margin="-5,-7,-10,-15" Background="#FF424242">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="83*" />
+                <ColumnDefinition Width="40*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Willkommen" HorizontalAlignment="Center" Margin="-4,26,-3,0" VerticalAlignment="Top" Height="36" Width="496" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <Label Content="Bitte gebe deine Verwendeten Passwörter ein oder wenn du das Programm" HorizontalAlignment="Center" Margin="-4,67,-3,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <Label Content="noch nicht verwendet hast, dann gebe neue Passwörter ein" HorizontalAlignment="Center" Margin="-4,84,-3,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <PasswordBox x:Name="PasswordXor" HorizontalAlignment="Left" Margin="37,156,0,0" VerticalAlignment="Top" Height="28" Width="316" Background="{x:Null}" BorderBrush="#FF0040FF" Foreground="White" SelectionTextBrush="#FF464646" MaxLength="50" Grid.Column="1" FontSize="16" Grid.ColumnSpan="2" />
+            <PasswordBox x:Name="PasswordCrypter" HorizontalAlignment="Left" Margin="37,212,0,0" VerticalAlignment="Top" Height="28" Width="316" Background="{x:Null}" BorderBrush="#FF0040FF" Foreground="White" SelectionTextBrush="#FF464646" MaxLength="30" Grid.Column="1" FontSize="16" Grid.ColumnSpan="2" />
+            <PasswordBox x:Name="Secure_key" HorizontalAlignment="Left" Margin="37,262,0,0" VerticalAlignment="Top" Height="26" Width="73" Background="{x:Null}" BorderBrush="#FF0040FF" Foreground="White" SelectionTextBrush="#FF464646" MaxLength="3" Grid.Column="1" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
+            <Label Content="Passwort 1" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Width="121" Foreground="White" Grid.ColumnSpan="2" Height="26" />
+            <Label Content="Passwort 2" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" Width="121" Foreground="White" Height="28" Grid.ColumnSpan="2" />
+            <Label Content="PIN" HorizontalAlignment="Left" Margin="15,262,0,0" VerticalAlignment="Top" Width="33" Foreground="White" Height="26" />
+            <Button x:Name="Login_Button" Content="Login" HorizontalAlignment="Right" Margin="0,360,0,0" VerticalAlignment="Top" Width="249" Height="30" Background="#FF7B6EFF" Foreground="White" Click="Login_Button_Click" Style="{StaticResource Corner}" RenderTransformOrigin="0.583,0.6" Grid.Column="1" />
+            <Button x:Name="CloseButton" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="79,0,0,0" VerticalAlignment="Top" Width="23" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="1.174,0.6" Style="{StaticResource MyButton}" Height="18" Click="CloseButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/macos-close-90.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Button x:Name="Minimize_Button" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="51,0,0,0" VerticalAlignment="Top" Width="23" Foreground="{x:Null}" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Height="18" Click="Minimize_Button_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Images/minimize.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Label Content="Passwort 1 und 2 dürfen nicht Übereinstimmen!" HorizontalAlignment="Center" Margin="-7,101,0,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <CheckBox x:Name="Speicher_Es" Content="" HorizontalAlignment="Left" Margin="15,303,0,0" VerticalAlignment="Top" Height="16" Width="28" Style="{DynamicResource ModernCheckbox}" FontSize="10" AutomationProperties.HelpText="Bei Aktivierung werden die Passwörter in der Config Standard Verschlüsselt gespeichert. Dies wird nicht empfohlen da man Sie einfach entschlüsseln kann" IsChecked="False" />
+            <Label Content="Speicher Passwörter in Config (Unsicher, nicht Empfohlen)" HorizontalAlignment="Left" Margin="31,298,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="326" Background="{x:Null}" Foreground="#FFF3F3F3" FontSize="10" Height="24"/>
+        </Grid>
+    </Border>
+</Window>
