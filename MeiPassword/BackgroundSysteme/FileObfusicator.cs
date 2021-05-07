@@ -2,35 +2,18 @@
 using System.IO;
 using System.Security.Cryptography;
 using ModernMessageBoxLib;
-using ModernWpf;
 namespace MeiPassword.BackgroundSysteme
 {
     public class FileObfusicator
     {
         private static int salt = Int32.Parse(Algorythmen.Auth_Class_System.salt_key);
 
-        private static void encryptStuff(string sDir, string Filename)
-        {
-            string f = Path.Combine(sDir + Filename);
-            try
-            {
-                if (!f.Contains(Algorythmen.PathFinding.filename))
-                {
-                    Crypto(f, Algorythmen.Auth_Class_System.password_crypt);
-                    File.Delete(f);
-                }
-            }
-            catch (Exception e)
-            {
-                QModernMessageBox.Show($"Error Message:\n{e}", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
-            }
-        }
-
-        private static void Crypto(string inputFile, string password)
+       
+        public static void Crypto(string inputFile)
         {
             byte[] salt = GenerateRandomSalt();
             FileStream fsCrypt = new FileStream(inputFile + Algorythmen.PathFinding.filename, FileMode.Create);
-            byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(password);
+            byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(Algorythmen.Auth_Class_System.password_crypt);
             RijndaelManaged AES = new RijndaelManaged();
             AES.KeySize = 256;
             AES.BlockSize = 128;
@@ -65,7 +48,61 @@ namespace MeiPassword.BackgroundSysteme
             }
         }
 
+        public static void Decrypter(string inputFile, string outputFile)
+        {
+            byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(Algorythmen.Auth_Class_System.password_crypt);
+            byte[] salt = GenerateRandomSalt();
+            FileStream cryptfiles = new FileStream(inputFile, FileMode.Open);
+            cryptfiles.Read(salt, 0, salt.Length);
+            RijndaelManaged ert = new RijndaelManaged();
+            ert.KeySize = 256;
+            ert.BlockSize = 128;
+            var key = new Rfc2898DeriveBytes(passwordBytes, salt, 50000);
+            ert.Key = key.GetBytes(ert.KeySize / 8);
+            ert.IV = key.GetBytes(ert.BlockSize / 8);
+            ert.Padding = PaddingMode.PKCS7;
+            ert.Mode = CipherMode.CBC;
 
+            CryptoStream cryptoStream = new CryptoStream(cryptfiles, ert.CreateDecryptor(), CryptoStreamMode.Read);
+
+            FileStream fileStreamOutput = new FileStream(outputFile, FileMode.Create);
+
+            int read;
+            byte[] buffer = new byte[1048576];
+
+            try
+            {
+                while ((read = cryptoStream.Read(buffer, 0, buffer.Length)) > 0)
+                {
+
+                    fileStreamOutput.Write(buffer, 0, read);
+                }
+            }
+            catch (CryptographicException ex_CryptographicException)
+            {
+                QModernMessageBox.Show($"CryptographicException error:\n{ex_CryptographicException.Message}", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+               
+            }
+            catch (Exception ex)
+            {
+               
+                QModernMessageBox.Show($"Error:\n{ex.Message}", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+            }
+
+            try
+            {
+                cryptoStream.Close();
+            }
+            catch (Exception ex)
+            {
+                QModernMessageBox.Show($"Error by closing CryptoStream::\n{ex.Message}", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+            }
+            finally
+            {
+                fileStreamOutput.Close();
+                cryptfiles.Close();
+            }
+        }
 
         public static byte[] GenerateRandomSalt()
         {

@@ -1,13 +1,11 @@
 ﻿using System;
+using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using MeiPassword.Algorythmen;
 using MeiPassword.ConfigsSystem;
 using ModernMessageBoxLib;
-
-
 
 namespace MeiPassword
 {
@@ -18,7 +16,7 @@ namespace MeiPassword
     {
        public bool priv { get; set; }
         public bool priv2 { get; set; }
-        private readonly string pw = "passwrorrdd";
+        private readonly string pw = "31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSIie";
         public MainWindow()
         {
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
@@ -61,11 +59,10 @@ namespace MeiPassword
             }
             if (Discord)
             {
-                DiscordRPC.Discord_RPC.rpc(true, false, false, false);
+                DiscordRPC.Discord_RPC.rpc(true, false, false, false, false);
             }
             if (AutoLogins)
             {
-                Algorythmen.Auth_Class_System.password_xor = MeisXOR.XORConverter.MeiXORDecrypt(MyIni.Read("PSW1", "PasswortFileSystem").ToString(), pw);
                 Algorythmen.Auth_Class_System.password_crypt = MeisXOR.XORConverter.MeiXORDecrypt(MyIni.Read("PSW2", "PasswortFileSystem").ToString(), pw);
                 Algorythmen.Auth_Class_System.salt_key = MeisXOR.XORConverter.MeiXORDecrypt(MyIni.Read("PIN", "PasswortFileSystem").ToString(), pw);
                 UI_Management.ControlScreen data = new UI_Management.ControlScreen();
@@ -86,11 +83,7 @@ namespace MeiPassword
             
             bool checker = false;
 
-            if (PasswordXor.Password.Length > 15)
-            {
-                Algorythmen.Auth_Class_System.password_xor = PasswordXor.Password;
-            }
-            if (PasswordCrypter.Password.Length > 15 && PasswordCrypter.Password != PasswordXor.Password)
+            if (PasswordCrypter.Password.Length > 15)
             {
                 Algorythmen.Auth_Class_System.password_crypt = PasswordCrypter.Password;
             }
@@ -98,27 +91,21 @@ namespace MeiPassword
             {
                 Algorythmen.Auth_Class_System.salt_key = Secure_key.Password;
             } 
-            if (Secure_key.Password == "" && PasswordXor.Password == "" && PasswordCrypter.Password == "")
+            if (Secure_key.Password == "" && PasswordCrypter.Password == "")
             {
                 checker = false;
 
                 QModernMessageBox.Show("Bitte Fülle alle Felder aus!", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                 return;
-            } else if(Secure_key.Password == PasswordXor.Password)
-            {
-                checker = false;
-
-                QModernMessageBox.Show("Passwort 1 und Passwort 2 dürfen nicht Übereinstimmen!", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
             } else
             {
                 checker = true;
             }
 
 
-
             if (checker)
             {
-                SChecked(Algorythmen.Auth_Class_System.password_xor, Algorythmen.Auth_Class_System.password_crypt, Algorythmen.Auth_Class_System.salt_key);
+                SChecked(Algorythmen.Auth_Class_System.password_crypt, Algorythmen.Auth_Class_System.salt_key);
                 UI_Management.ControlScreen data = new UI_Management.ControlScreen();
                 data.Show();
                 this.Hide();
@@ -129,7 +116,7 @@ namespace MeiPassword
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, false, true);
+            DiscordRPC.Discord_RPC.rpc(false, false, false, true, false);
             System.Environment.Exit(1);
         }
 
@@ -144,13 +131,12 @@ namespace MeiPassword
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void SChecked(string xor, string crypt, string pin)
+        private void SChecked(string crypt, string pin)
         {
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
             if (Speicher_Es.IsChecked == true)
             {
                 MyIni.Write("PIN", MeisXOR.XORConverter.MeiXOREncrypt(pin, pw), "PasswortFileSystem");
-                MyIni.Write("PSW1", MeisXOR.XORConverter.MeiXOREncrypt(xor, pw), "PasswortFileSystem");
                 MyIni.Write("PSW2", MeisXOR.XORConverter.MeiXOREncrypt(crypt, pw), "PasswortFileSystem");
                 MyIni.Write("AutoLogin", "true", "System");
                 return;

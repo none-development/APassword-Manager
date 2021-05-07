@@ -29,7 +29,7 @@ namespace MeiPassword.DiscordRPC
 
             if (b)
             {
-                rpc(true, false, false, false);
+                rpc(true, false, false, false, true);
             }
             else
             {
@@ -38,16 +38,17 @@ namespace MeiPassword.DiscordRPC
 
         }
 
-        public static void rpc(bool start, bool setting, bool menu, bool close)
+        public static void rpc(bool start, bool setting, bool menu, bool close, bool nothing)
         {
             client = new DiscordRpcClient("838389755146010645");
             client.Initialize();
             if (start)
             {
+                client.ClearPresence();
                 client.SetPresence(new RichPresence()
                 {
-                    Details = "Using Azusa Passwort Manager",
-                    State = "Login",
+                    Details = "Using APM",
+                    State = "Mainscreen",
                     Assets = new Assets()
                     {
                         LargeImageKey = "main",
@@ -63,10 +64,11 @@ namespace MeiPassword.DiscordRPC
             }
             if (setting)
             {
+                client.ClearPresence();
                 client.SetPresence(new RichPresence()
                 {
-                    Details = "Using Azusa Passwort Manager",
-                    State = "In den Einstellungen",
+                    Details = "Using APM",
+                    State = "Settings",
                     Assets = new Assets()
                     {
                         LargeImageKey = "main",
@@ -84,9 +86,10 @@ namespace MeiPassword.DiscordRPC
 
             if (menu)
             {
+                client.ClearPresence();
                 client.SetPresence(new RichPresence()
                 {
-                    Details = "Using Azusa Passwort Manager",
+                    Details = "Using APM",
                     State = "Login",
                     Assets = new Assets()
                     {
@@ -101,12 +104,7 @@ namespace MeiPassword.DiscordRPC
                     }
                 });
             }
-            if (close)
-            {
-                client.Dispose();
-            }
+        
         }
-
-
     }
 }

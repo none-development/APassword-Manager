@@ -29,7 +29,7 @@ namespace MeiPassword.UI_Management
         {
 
             InitializeComponent();
-            DiscordRPC.Discord_RPC.rpc(false, true, false, false);
+            DiscordRPC.Discord_RPC.rpc(false, true, false, false, false);
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
             string edsd = MyIni.Read("DiscordRPC", "System");
             string AutoLogin = MyIni.Read("AutoLogin", "System").ToString();
@@ -45,7 +45,7 @@ namespace MeiPassword.UI_Management
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, true, false);
+            DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
             this.Close();
 
         }
@@ -74,15 +74,40 @@ namespace MeiPassword.UI_Management
 
         private void Music_OnOff_Checked(object sender, RoutedEventArgs e)
         {
-            bool check = (bool)Music_OnOff.IsChecked;
-            if (!check)
+            var MyIni = new IniFile(PathFinding.CONFIGFILE);
+            bool check = Boolean.Parse(Music_OnOff.IsChecked.ToString().ToLower());
+            if (check == false)
             {
-                DisableAudio();
+                    try
+                    {
+                        MyIni.DeleteKey("Music", "Audio");
+                        MyIni.Write("Music", "false", "Audio");
+                        BackgroundSysteme.MusicSysteme.play(false);
+            
+                    }
+                    catch (Exception x)
+                    {
+                        QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    }
                 return;
             }
             if (check)
             {
-                EnableAudio();
+                bool b = Boolean.Parse(MyIni.Read("Music", "Audio").ToString());
+                if (!b)
+                {
+                    try
+                    {
+                        MyIni.DeleteKey("Music", "Audio");
+                        MyIni.Write("Music", "true", "Audio");
+                        BackgroundSysteme.MusicSysteme.play(true);
+                    }
+                    catch (Exception x)
+                    {
+                        QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    }
+
+                }
                 return;
             }
         }
@@ -121,7 +146,6 @@ namespace MeiPassword.UI_Management
             {
                 MyIni.DeleteKey("AutoLogin", "System");
                 MyIni.Write("PIN", MeisXOR.XORConverter.MeiXOREncrypt(Auth_Class_System.salt_key, pw), "PasswortFileSystem");
-                MyIni.Write("PSW1", MeisXOR.XORConverter.MeiXOREncrypt(Auth_Class_System.password_xor, pw), "PasswortFileSystem");
                 MyIni.Write("PSW2", MeisXOR.XORConverter.MeiXOREncrypt(Auth_Class_System.password_crypt, pw), "PasswortFileSystem");
                 MyIni.Write("AutoLogin", "true", "System");
             }
@@ -129,7 +153,6 @@ namespace MeiPassword.UI_Management
             {
                 MyIni.DeleteKey("AutoLogin", "System");
                 MyIni.Write("PIN", "", "PasswortFileSystem");
-                MyIni.Write("PSW1", "", "PasswortFileSystem");
                 MyIni.Write("PSW2", "", "PasswortFileSystem");
                 MyIni.Write("AutoLogin", "false", "System");
             }
@@ -218,9 +241,6 @@ namespace MeiPassword.UI_Management
             return;
         }
 
-        private void RGB_Color_Checked(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

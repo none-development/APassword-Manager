@@ -10,8 +10,6 @@ namespace MeiPassword.ConfigsSystem
     public static class StartUp_Count
     {
         public static int Dateien { get; set; }
-        
-
 
         public static string[] files()
         {

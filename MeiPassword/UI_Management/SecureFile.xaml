@@ -1,0 +1,44 @@
+﻿<Window x:Class="MeiPassword.UI_Management.SecureFile"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MeiPassword.UI_Management"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="SecureFile" Height="418.333" Width="359.653" Background="{x:Null}" Foreground="{x:Null}">
+    <Border  Background="#FF454447" Padding="5" CornerRadius="15" BorderBrush="#FF454447" OpacityMask="#FF454447" Height="418" VerticalAlignment="Bottom">
+        <Grid x:Name="Minmize" Margin="5,1,0,5" Background="#FF454447">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0*" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="CloseButton" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="321,0,0,0" VerticalAlignment="Top" Width="19" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="1.174,0.6" Style="{StaticResource MyButton}" Height="18" Click="CloseButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="/APasswordManager;component/Images/macos-close-90.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Button x:Name="OutPutPath" Content="Wähle Output Folder aus" HorizontalAlignment="Left" Margin="23,130,0,0" VerticalAlignment="Top" Width="293" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="OutPutPath_Click" />
+            <Button x:Name="SelectFile" Content="Wähle Datei aus" HorizontalAlignment="Left" Margin="23,64,0,0" VerticalAlignment="Top" Width="293" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" RenderTransformOrigin="0.501,0.107" Click="SelectFile_Click" />
+            <Label Content="Secure File Generator" HorizontalAlignment="Left" Margin="23,7,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="293" Foreground="White" FontSize="16" FontWeight="Bold"/>
+            <Label Content="Hier kannst du eine Datei verschlüsseln lassen" HorizontalAlignment="Left" Margin="23,38,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White" FontSize="8"/>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="293" Grid.ColumnSpan="2" Background="White"/>
+            <Label x:Name="pahtfile" Grid.ColumnSpan="2" Content="Keine Datei ausgewählt" HorizontalAlignment="Left" Margin="23,94,0,0" VerticalAlignment="Top" Width="293" Foreground="White"/>
+            <Label x:Name="outputpath" Grid.ColumnSpan="2" Content="Kein Output Folder Ausgewählt" HorizontalAlignment="Left" Margin="23,167,0,0" VerticalAlignment="Top" Width="293" Foreground="White"/>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="23,189,0,0" VerticalAlignment="Top" Width="293" Grid.ColumnSpan="2" Background="White"/>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="23,116,0,0" VerticalAlignment="Top" Width="293" Grid.ColumnSpan="2" Background="White"/>
+            <Label Grid.ColumnSpan="2" Content="Output Filename:" HorizontalAlignment="Left" Margin="23,211,0,0" VerticalAlignment="Top" Width="104" Foreground="White"/>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="119,233,0,0" VerticalAlignment="Top" Width="197" Grid.ColumnSpan="2" Background="White"/>
+            <TextBox x:Name="filenameout" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="18" Margin="119,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="197" VerticalContentAlignment="Center" HorizontalScrollBarVisibility="Auto" Padding="0,1,0,0" UseLayoutRounding="False" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+            <Button x:Name="Create" Content="Erstelle verschlüsselte Datei" HorizontalAlignment="Left" Margin="23,242,0,0" VerticalAlignment="Top" Width="293" Height="25" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="Create_Click" />
+            <Label x:Name="entschlusselpath" Grid.ColumnSpan="2" Content="Keine Datei ausgewählt" HorizontalAlignment="Left" Margin="23,306,0,0" VerticalAlignment="Top" Width="293" Foreground="White"/>
+            <Label Content="Entschlüssel Datei" HorizontalAlignment="Left" Margin="23,267,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="293" Foreground="White" FontSize="16" FontWeight="Bold"/>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,329,0,0" VerticalAlignment="Top" Width="293" Grid.ColumnSpan="2" Background="White"/>
+            <Button x:Name="Entschlüsselwahl" Content="Select Datei zum Entschlüsseln" HorizontalAlignment="Left" Margin="10,332,0,0" VerticalAlignment="Top" Width="200" Height="25" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="Entschlüsselwahl_Click" />
+            <Button x:Name="Entschluesseln" Content="Entschlüsseln" HorizontalAlignment="Left" Margin="215,332,0,0" VerticalAlignment="Top" Width="112" Height="25" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="Entschluesseln_Click" />
+        </Grid>
+    </Border>
+</Window>

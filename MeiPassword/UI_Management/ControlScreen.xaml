@@ -16,34 +16,43 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
-            <Label Content="Hauptmenu Azusa Passwort Manager" HorizontalAlignment="Center" Margin="10,10,314,0" VerticalAlignment="Top" Height="36" Width="496" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" />
-            <Label x:Name="Untertitel" HorizontalAlignment="Center" Content="" Margin="10,43,314,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="1" />
-            <Label x:Name="line_zwei" HorizontalAlignment="Center" Content="" Margin="10,65,314,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="1" />
-            <Label Content="" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" Width="121" Foreground="White" Grid.Column="1" Height="26" />
+            <Label Content="Hauptmenu" HorizontalAlignment="Center" Margin="160,-6,164,0" VerticalAlignment="Top" Height="36" Width="496" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.Column="1" />
+            <Label x:Name="Untertitel" HorizontalAlignment="Center" Content="[Internal Error]" Margin="431,30,61,0" VerticalAlignment="Top" Height="35" Width="328" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="1" />
+            <Label x:Name="line_zwei" HorizontalAlignment="Center" Content="[Internal Error]" Margin="431,53,61,0" VerticalAlignment="Top" Height="35" Width="328" Foreground="White" HorizontalContentAlignment="Center" Grid.Column="1" />
             <Button x:Name="CloseButton" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="787,0,0,0" VerticalAlignment="Top" Width="23" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="1.174,0.6" Style="{StaticResource MyButton}" Height="18" Click="CloseButton_Click">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Mei Password Manager;component/Images/macos-close-90.png" Stretch="Uniform" />
+                    <ImageBrush ImageSource="/APasswordManager;component/Images/macos-close-90.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
             <Button x:Name="Minimize_Button" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="759,0,0,0" VerticalAlignment="Top" Width="23" Foreground="{x:Null}" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Height="18" Click="Minimize_Button_Click" RenderTransformOrigin="0.5,0.5">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Mei Password Manager;component/Images/minimize.png" Stretch="Uniform" />
+                    <ImageBrush ImageSource="/APasswordManager;component/Images/minimize.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
-            <Button x:Name="Settings" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="728,0,0,0" VerticalAlignment="Top" Width="31" Foreground="{x:Null}" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Height="18" RenderTransformOrigin="0.5,0.5" Click="Settings_Click">
+            <Button x:Name="Settings" Content="Button" Grid.Column="1" HorizontalAlignment="Left" Margin="728,0,0,0" VerticalAlignment="Top" Width="31" Foreground="{x:Null}" BorderBrush="{x:Null}" Style="{StaticResource MyButton}" Height="18" RenderTransformOrigin="0.5,0.5" Click="Settings_Click" ToolTip="Öffne die Einstellungen">
                 <Button.Background>
-                    <ImageBrush ImageSource="/Mei Password Manager;component/Images/settings.png" Stretch="Uniform" />
+                    <ImageBrush ImageSource="/APasswordManager;component/Images/settings.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
-            <ListBox Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="325" Margin="10,97,0,0" VerticalAlignment="Top" Width="341" Background="{x:Null}" BorderBrush="White" Foreground="#FFFBFBFB"/>
-            <Button x:Name="GeneratePW" Content="Generiere ein Passwort" HorizontalAlignment="Left" Margin="590,100,0,0" VerticalAlignment="Top" Width="220" Height="39" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="GeneratePW_Click"/>
-            <CheckBox x:Name="Chinese_check" Content="Asiatische Symbole" HorizontalAlignment="Left" Margin="366,100,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="17" Width="140" Style="{StaticResource ModernCheckbox}" IsChecked="False"/>
-            <Label Grid.ColumnSpan="2" Content="Anzahl Zeichen:" HorizontalAlignment="Left" Margin="366,118,0,0" VerticalAlignment="Top" Width="100" Foreground="White"/>
-            <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="3" Margin="454,136,0,0" VerticalAlignment="Top" Width="120" Background="White"/>
-            <TextBox x:Name="Anzahl_Zeichen" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="19" Margin="454,122,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="119" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="White" Background="{x:Null}" PreviewTextInput="NumberValidationTextBox"/>
-            <Button x:Name="GenerateKeyFile" Content="Generiere eine Passwortfile fur Secure Massage" HorizontalAlignment="Left" Margin="379,238,0,0" VerticalAlignment="Top" Width="403" Height="23" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="GenerateKeyFile_Click"/>
-            <TextBox x:Name="password_massege" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="379,208,0,0" VerticalAlignment="Top" Width="403" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="White"/>
-            <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="4" Margin="379,234,0,0" VerticalAlignment="Top" Width="403" Background="White"/>
+            <ListBox x:Name="Passwords" HorizontalAlignment="Left" Height="402" Margin="0,30,0,0" VerticalAlignment="Top" Width="374" Background="{x:Null}" BorderBrush="White" Foreground="#FFFBFBFB" Grid.ColumnSpan="2"/>
+            <Button x:Name="GeneratePW" Content="Generiere ein Passwort" HorizontalAlignment="Left" Margin="550,95,0,0" VerticalAlignment="Top" Width="232" Height="22" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="GeneratePW_Click" RenderTransformOrigin="0.397,0.591" ToolTip="Generiere ein Sicheres Passwort und speicher es in deine Zwischenablage"/>
+            <CheckBox x:Name="Chinese_check" Content="Asiatische Symbole" HorizontalAlignment="Left" Margin="379,100,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="17" Width="140" Style="{StaticResource ModernCheckbox}" IsChecked="False"/>
+            <Label Grid.ColumnSpan="2" Content="Anzahl Zeichen:" HorizontalAlignment="Left" Margin="379,118,0,0" VerticalAlignment="Top" Width="100" Foreground="White"/>
+            <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="3" Margin="467,138,0,0" VerticalAlignment="Top" Width="52" Background="White"/>
+            <TextBox x:Name="Anzahl_Zeichen" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="19" Margin="467,122,0,0" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="52" BorderBrush="{x:Null}" SelectionTextBrush="{x:Null}" SelectionBrush="{x:Null}" Foreground="White" Background="{x:Null}" PreviewTextInput="NumberValidationTextBox"/>
+            <Button x:Name="GenerateKeyFile" Content="Öffne Secure File Menu" HorizontalAlignment="Left" Margin="379,149,0,0" VerticalAlignment="Top" Width="188" Height="29" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="GenerateKeyFile_Click" ToolTip="Öffne ein Menu mit dem du Datein verschlüsseln und Verschicken kannst."/>
+            <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="4" Margin="379,337,0,0" VerticalAlignment="Top" Width="403" Background="White"/>
+            <Button x:Name="SaveNewPass" Content="Speicher Passwort" HorizontalAlignment="Left" Margin="379,376,0,0" VerticalAlignment="Top" Width="403" Height="23" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" Click="SaveNewPass_Click" ToolTip="Speicher ein Passwort ab"/>
+            <Label Content="Passwort:" HorizontalAlignment="Left" Margin="379,310,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="70" Foreground="White"/>
+            <PasswordBox x:Name="password_save" HorizontalAlignment="Left" Margin="449,315,0,0" VerticalAlignment="Top" Width="333" Grid.ColumnSpan="2" Height="21" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Background="{x:Null}"/>
+            <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="4" Margin="379,372,0,0" VerticalAlignment="Top" Width="403" Background="White"/>
+            <TextBox x:Name="email_save" HorizontalAlignment="Left" Height="23" Margin="474,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="308" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+            <Label Content="Email/Username:" HorizontalAlignment="Left" Margin="379,346,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="100" Foreground="White"/>
+            <TextBox x:Name="FileName" HorizontalAlignment="Left" Height="23" Margin="431,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="351" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
+            <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="4" Margin="379,301,0,0" VerticalAlignment="Top" Width="403" Background="White"/>
+            <Label Content="Name:" HorizontalAlignment="Left" Margin="379,275,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="47" Foreground="White"/>
+            <Button x:Name="EntschluesselSelected" Content="Entschlüsseln" HorizontalAlignment="Left" Margin="379,409,0,0" VerticalAlignment="Top" Width="145" Height="23" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" ToolTip="Entschlüsse und Zeige ein Verschlüsseltes Passwort an" Click="EntschluesselSelected_Click"/>
+            <Button x:Name="deleteselected" Content="Lösche Password" HorizontalAlignment="Left" Margin="538,409,0,0" VerticalAlignment="Top" Width="145" Height="23" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" ToolTip="Lösche das ausgewählte Passwort" Click="deleteselected_Click"/>
         </Grid>
     </Border>
 </Window>

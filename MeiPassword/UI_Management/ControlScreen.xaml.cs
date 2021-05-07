@@ -7,6 +7,9 @@ using ModernMessageBoxLib;
 using MeisXOR;
 using System.IO;
 using System.Security.Cryptography;
+using MeiPassword.Algorythmen;
+using MeiPassword.ConfigsSystem;
+using MeiPassword.BackgroundSysteme;
 
 namespace MeiPassword.UI_Management
 {
@@ -16,20 +19,18 @@ namespace MeiPassword.UI_Management
     public partial class ControlScreen : Window
     {
       
-        private readonly string pw = "UㄨB8中CQ2机35先o8LQ先-dj7这_H9JRAPycF明说;进中cGS/f9书{C中A+3";
-        private readonly int init = 35;
         public ControlScreen()
         {
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
-            start();
-            DiscordRPC.Discord_RPC.rpc(false, true, false, false);
+            start(); listadd();
+            DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
         }
 
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, false, true);
+            DiscordRPC.Discord_RPC.rpc(false, false, false, true, false);
             System.Environment.Exit(1);
         }
 
@@ -65,7 +66,7 @@ namespace MeiPassword.UI_Management
                 finish = RandomString(zeichen, true);
             }
             Clipboard.SetText(finish);
-            var msg = new ModernMessageBox("Dein Generiertes Passwort befindet sich in deiner Zwischenablage :)", "Azusa Passwort Meneger Massege", ModernMessageboxIcons.Info, "Cool owo")
+            var msg = new ModernMessageBox("Dein Generiertes Passwort befindet sich in deiner Zwischenablage", "Application Info", ModernMessageboxIcons.Info, "Ok")
             {
                 Button1Key = Key.D1,
             };
@@ -73,11 +74,10 @@ namespace MeiPassword.UI_Management
 
         }
 
-
         private string RandomString(int length, bool chinese) 
         {
             Random rand = new Random();
-            const string pool = "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_{+-;./%#";
+            const string pool = "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_{+-%#";
             const string poolchinese = "ㄓㄨㄥㄨㄣ中文字将制造款世界上最先进的飞机这是份非常简单的说明书abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_{+-;./%#";
             var builder = new StringBuilder();
 
@@ -114,7 +114,6 @@ namespace MeiPassword.UI_Management
             return builder.ToString();
         }
 
-
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -123,23 +122,8 @@ namespace MeiPassword.UI_Management
 
         private void GenerateKeyFile_Click(object sender, RoutedEventArgs e)
         {
-            if(password_massege.Text != "")
-            {
-                string securetext = XORConverter.MeiXOREncrypt(password_massege.Text, pw);
-                string filename = RandomString2(12);
-                File.AppendAllText(Algorythmen.PathFinding.MessageSpace + $"\\{filename}.txt", securetext);
-                string f = Path.Combine(Algorythmen.PathFinding.MessageSpace + $"{filename}.txt");
-                Crypto2(f, pw);
-                string g = Path.Combine(Algorythmen.PathFinding.MessageSpace + $"\\{filename}.txt.smapws");
-                string l = Path.Combine(Algorythmen.PathFinding.MessageSpace + $"\\{filename}.smapws");
-                File.Move(g, l);
-                File.Delete(g);
-                QModernMessageBox.Show("Eine Verschlüsselte Datei wurde erstellt", "Application info", QModernMessageBox.QModernMessageBoxButtons.Ok);
-
-            } else
-            {
-                QModernMessageBox.Show("Bitte verwende ein Passwort welches in die Datei soll", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok);
-            }
+            SecureFile scf = new SecureFile();
+            scf.Show();
         }
 
         public static void Crypto2(string inputFile, string password)
@@ -195,5 +179,93 @@ namespace MeiPassword.UI_Management
 
             return data;
         }
+
+        private void SaveNewPass_Click(object sender, RoutedEventArgs e)
+        {
+            bool b = false;
+            if(email_save.Text != "" && password_save.Password != ""  && FileName.Text != "")
+            {
+                string email = Convert.ToBase64String(Encoding.UTF8.GetBytes(email_save.Text));
+                string passwort_save = Convert.ToBase64String(Encoding.UTF8.GetBytes(password_save.Password));
+                string filename = FileName.Text;
+                foreach(string file in files())
+                {
+                    if(file == $"{filename}.apwm")
+                    {
+                        b = true;
+                    }
+                }
+
+                if (b)
+                {
+                    QModernMessageBox.Show($"Error:\nPassword {filename} already exist", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+                    return;
+                }
+
+                if (!b)
+                {
+                    var MyIni = new IniFile(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
+                    MyIni.Write("USERNAMEEMAIL", email, "DATA");
+                    MyIni.Write("PASSWORDPASS", passwort_save, "DATA");
+                    FileObfusicator.Crypto(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
+                    File.Move(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm", PathFinding.PASSWORDFOLDER + $"{filename}.apwm");
+                    File.Delete(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm");
+                    QModernMessageBox.Show($"Dein Passwort wurde gespeichert", "Erfolg!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    cleatlist();
+                    listadd();
+                    return;
+                }
+
+            }
+            QModernMessageBox.Show($"Du kannst nicht Nichts als Passwort eintragen", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+
+        }
+
+        public void listadd()
+        {
+            foreach(string a in files())
+            {
+                string b = Path.GetFileNameWithoutExtension(a);
+                Passwords.Items.Add(b);
+            }
+        }
+
+        public void cleatlist()
+        {
+            Passwords.Items.Clear();
+        }
+
+        public static string[] files()
+        {
+            string[] b = Directory.GetFiles(Algorythmen.PathFinding.PASSWORDFOLDER);
+            return b;
+        }
+
+        private void EntschluesselSelected_Click(object sender, RoutedEventArgs e)
+        {
+            string name = Passwords.SelectedItem.ToString() + ".apwm";
+            string path = Path.Combine(PathFinding.PASSWORDFOLDER, name);
+            string newfilenametemp = RandomString2(12);
+            string outpath = Path.Combine(PathFinding.PASSWORDFOLDER, newfilenametemp + ".ini");
+            FileObfusicator.Decrypter(path, outpath);
+            var MyIni = new IniFile(outpath);
+            SaveSpace.CryptUsername = MyIni.Read("USERNAMEEMAIL", "DATA");
+            SaveSpace.CryptPW = MyIni.Read("PASSWORDPASS", "DATA");
+            File.Delete(outpath);
+            OutputData b = new OutputData();
+            b.Show();
+
+        }
+
+        private void deleteselected_Click(object sender, RoutedEventArgs e)
+        {
+            string name =  Passwords.SelectedItem.ToString() + ".apwm";
+            File.Delete(Path.Combine(PathFinding.PASSWORDFOLDER, name));
+            cleatlist();
+            listadd();
+            QModernMessageBox.Show($"Das Passwort wurde gelöscht", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+        }
+
+
     }
 }

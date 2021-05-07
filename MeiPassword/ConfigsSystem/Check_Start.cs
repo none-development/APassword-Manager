@@ -42,7 +42,6 @@ namespace MeiPassword.ConfigsSystem
 
                 //Save Passwords
                 MyIni.Write("PIN", "", "PasswortFileSystem");
-                MyIni.Write("PSW1", "", "PasswortFileSystem");
                 MyIni.Write("PSW2", "", "PasswortFileSystem");
 
                 //Colors
