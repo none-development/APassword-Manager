@@ -10,7 +10,6 @@
 <p align="center">
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Azusa-chxn/Azusa-Password-Manager?style=for-the-badge">
   <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Azusa-chxn/Azusa-Password-Manager?include_prereleases&style=for-the-badge">
-  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Azusa-chxn/Azusa-Password-Manager/total?color=%230099cc&style=for-the-badge">
 </p>
 
 # About this Project
