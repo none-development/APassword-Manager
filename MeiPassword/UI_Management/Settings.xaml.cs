@@ -88,7 +88,7 @@ namespace MeiPassword.UI_Management
                     }
                     catch (Exception x)
                     {
-                        QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                        QModernMessageBox.Show($"Error: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                     }
                 return;
             }
@@ -214,7 +214,7 @@ namespace MeiPassword.UI_Management
                 }
                 catch (Exception x)
                 {
-                    QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    QModernMessageBox.Show($"Error: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                 }
 
             }
@@ -235,7 +235,7 @@ namespace MeiPassword.UI_Management
                 }
                 catch (Exception x)
                 {
-                    QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    QModernMessageBox.Show($"Error: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                 }
              
             }
@@ -280,8 +280,8 @@ namespace MeiPassword.UI_Management
         {
             int bcc = 0;
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
-            string b = langs.Name;
-            if(b == "eng")
+            string b = langs.SelectedValue.ToString();
+            if (b.Contains("Englisch"))
             {
                 MyIni.Write("Lang", "1", "System");
             } else
