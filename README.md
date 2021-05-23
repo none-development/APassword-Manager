@@ -45,6 +45,7 @@ Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc
 - [x] Crypt Files
 - [x] Support German
 - [x] Support English
+- [x] Language selection
 - [x] Webpage
 - [ ] Custom Path for passwords
 - [ ] Adroid App
