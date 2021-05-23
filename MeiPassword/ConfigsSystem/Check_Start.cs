@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MeiPassword.Algorythmen;
+using ModernMessageBoxLib;
 
 namespace MeiPassword.ConfigsSystem
 {
@@ -39,7 +40,7 @@ namespace MeiPassword.ConfigsSystem
                 MyIni.Write("PrivatePolicy", "false", "System");
                 MyIni.Write("DiscordRPC", "true", "System");
                 MyIni.Write("AutoLogin", "false", "System");
-
+                MyIni.Write("Lang", "1", "System");
                 //Save Passwords
                 MyIni.Write("PIN", "", "PasswortFileSystem");
                 MyIni.Write("PSW2", "", "PasswortFileSystem");
@@ -53,9 +54,25 @@ namespace MeiPassword.ConfigsSystem
                 MyIni.Write("Track_default", "true", "TrackToRun");
                 MyIni.Write("Track_2", "false", "TrackToRun");
                 MyIni.Write("Track_3", "false", "TrackToRun");
+
             }
 
 
+        }
+
+        public static int checkvaleu()
+        {
+            int bcc = 0;
+            var MyIni = new IniFile(PathFinding.CONFIGFILE);
+            try
+            {
+                bcc = Int16.Parse(MyIni.Read("Lang", "System"));
+            } catch(Exception x)
+            {
+                QModernMessageBox.Show($"Error: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                bcc = 0;
+            }
+            return bcc;
         }
     }
 }

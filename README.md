@@ -10,7 +10,6 @@
 <p align="center">
   <img alt="GitHub code size in bytes" src="https://img.shields.io/github/languages/code-size/Azusa-chxn/Azusa-Password-Manager?style=for-the-badge">
   <img alt="GitHub release (latest by date including pre-releases)" src="https://img.shields.io/github/v/release/Azusa-chxn/Azusa-Password-Manager?include_prereleases&style=for-the-badge">
-  <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/Azusa-chxn/Azusa-Password-Manager/total?color=%230099cc&style=for-the-badge">
 </p>
 
 # About this Project
@@ -21,6 +20,12 @@ The passwords are stored locally, encrypted so that they cannot be decrypted eve
 # Support Me
 
 Follow me on [Github](https://github.com/Azusa-chxn)
+Donate with BTC: `bc1qmvkx8ef6365np8372sdqy4r8k2ez8zzz3n5nzd`
+
+# Download
+Dowload on [Webpage](https://simp-to.me/)
+Dowload on [Hidden Webservice](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc2ad.onion/) 
+Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc2ad.onion/) 
 
 # Feature List
 
@@ -35,8 +40,10 @@ Follow me on [Github](https://github.com/Azusa-chxn)
 - [x] Crypt Passwords
 - [x] Crypt Files
 - [x] Support German
-- [ ] Support English
+- [x] Support English
+- [x] Webpage
+- [ ] Custom Path for passwords
+- [ ] Adroid App
 - [ ] Color Settings
-- [ ] Open Notepad++ if installed
 - [ ] Show Discord Name on it
-- [ ] Chrome, Firefox Extension
+- [ ] Chrome, Firefox Extensions

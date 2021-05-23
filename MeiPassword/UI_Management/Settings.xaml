@@ -26,10 +26,15 @@
             <Button x:Name="OpenPasswordFolder" Content="Öffne Password Folder" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="161" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenPasswordFolder_Click" />
             <Button x:Name="OpenConfig" Content="Öffne Config Folder" HorizontalAlignment="Left" Margin="171,233,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenConfig_Click" />
             <Button x:Name="OpenFolder" Content="Öffne Programm Folder" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Width="161" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenFolder_Click" />
-            <Label Content="Einstellungen" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White"/>
+            <Label x:Name="title" Content="Einstellungen" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White"/>
             <CheckBox x:Name="AutoLogin" Content="Autologin" HorizontalAlignment="Left" Margin="23,126,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="140" Background="White" Style="{StaticResource ModernCheckbox}" Click="AutoLogin_Checked"/>
-            <Label Content="Hier kannst du das Programm einstellen" HorizontalAlignment="Left" Margin="23,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White" FontSize="8"/>
+            <Label x:Name="infotext" Content="Hier kannst du das Programm einstellen" HorizontalAlignment="Left" Margin="23,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White" FontSize="8"/>
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="223" Grid.ColumnSpan="2" Background="White"/>
+            <ComboBox x:Name="langs" HorizontalAlignment="Left" Margin="23,147,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#72000000" Foreground="#FFFBFBFB" BorderBrush="#72000000" FontSize="12" FontFamily="Yu Gothic">
+                <ComboBoxItem Name="eng" IsSelected="True" Content="Englisch"></ComboBoxItem>
+                <ComboBoxItem Name="ger" IsSelected="False" Content="German"></ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="186,147,0,0" VerticalAlignment="Top" Width="98" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
         </Grid>
     </Border>
 </Window>

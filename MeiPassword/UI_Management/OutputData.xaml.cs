@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MeiPassword.Algorythmen;
 using MeiPassword.BackgroundSysteme;
+using MeiPassword.ConfigsSystem;
 using MeisXOR;
 using ModernMessageBoxLib;
 
@@ -30,6 +31,7 @@ namespace MeiPassword.UI_Management
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
             btnStart_Click_1();
+            rename();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -93,6 +95,25 @@ namespace MeiPassword.UI_Management
             }
                 
             timer_programm.Content = counter.ToString();
+        }
+
+
+
+        public void rename()
+        {
+            int data = Check_Start.checkvaleu();
+            if (data == 1) englisch();
+            if (data == 0) german();
+        }
+
+        void englisch()
+        {
+            timertitle.Content = "Time remaining";
+        }
+
+        void german()
+        {
+            timertitle.Content = "Zeit verbleibend";
         }
     }
 }

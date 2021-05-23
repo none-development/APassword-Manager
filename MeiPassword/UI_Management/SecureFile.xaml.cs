@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using MeiPassword.ConfigsSystem;
+using Microsoft.Win32;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using ModernMessageBoxLib;
 using System;
@@ -24,6 +25,7 @@ namespace MeiPassword.UI_Management
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
             DiscordRPC.Discord_RPC.rpc(false, false, false, false, true);
+            rename();
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
@@ -58,9 +60,6 @@ namespace MeiPassword.UI_Management
                 path_out = dialog.FileName;
             }
         }
-
-
-
 
 
         private void Decrypter(string inputFile, string outputFile)
@@ -118,7 +117,6 @@ namespace MeiPassword.UI_Management
                 cryptfiles.Close();
             }
         }
-
 
         public void Crypto2(string inputFile)
         {
@@ -225,6 +223,45 @@ namespace MeiPassword.UI_Management
             }
             if(entsch_path == "")
                 QModernMessageBox.Show($"Keine Datei ausgewählt", "Application Info", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+        }
+
+        public void rename()
+        {
+            int data = Check_Start.checkvaleu();
+            if (data == 1) englisch();
+            if (data == 0) german();
+        }
+
+        void englisch()
+        {
+            title.Content = "Secure File Generator";
+            des1.Content = "Here you can encrypt a file";
+            SelectFile.Content = "Select file";
+            pahtfile.Content = "No file selected";
+            OutPutPath.Content = "Select Output Folder";
+            outputpath.Content = "Select Output Folder";
+            output.Content = "Output Filename";
+            Create.Content = "Create encrypted file";
+            entschl.Content = "Decryption file";
+            entschlusselpath.Content = "No file selected";
+            Entschlüsselwahl.Content = "Select file to decrypt";
+            Entschluesseln.Content = "Decrypt";
+        }
+
+        void german()
+        {
+            title.Content = "Secure File Generator";
+            des1.Content = "Hier kannst du eine Datei verschlüsseln lassen";
+            SelectFile.Content = "Wähle Datei aus";
+            pahtfile.Content = "Keine Datei ausgewählt";
+            OutPutPath.Content = "Wähle ausgabe Ordner aus";
+            outputpath.Content = "Kein ausgabe Ordner ausgewählt";
+            output.Content = "Datei ausgabename";
+            Create.Content = "Erstelle verschlüsselte Datei";
+            entschl.Content = "Entschlüssel Datei";
+            entschlusselpath.Content = "Keine Datei ausgewählt";
+            Entschlüsselwahl.Content = "Wähle Datei zum Entschlüsseln";
+            Entschluesseln.Content = "Entschlüsseln";
         }
     }
 }

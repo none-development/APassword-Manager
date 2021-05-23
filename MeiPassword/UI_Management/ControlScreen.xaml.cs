@@ -23,7 +23,7 @@ namespace MeiPassword.UI_Management
         {
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
-            start(); listadd();
+            rename(); listadd();
             DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
         }
 
@@ -40,12 +40,6 @@ namespace MeiPassword.UI_Management
         }
 
         
-
-        private void start(){
-            Untertitel.Content = $"Willkommen {Environment.UserName} bei Azusa Passwort Manager";
-            var count = ConfigsSystem.StartUp_Count.files().Length;
-            line_zwei.Content = $"{Environment.UserName}, du hast {count} Passwörter gespeichert";
-        }
 
         private void Settings_Click(object sender, RoutedEventArgs e)
         {
@@ -66,7 +60,7 @@ namespace MeiPassword.UI_Management
                 finish = RandomString(zeichen, true);
             }
             Clipboard.SetText(finish);
-            var msg = new ModernMessageBox("Dein Generiertes Passwort befindet sich in deiner Zwischenablage", "Application Info", ModernMessageboxIcons.Info, "Ok")
+            var msg = new ModernMessageBox("Your generated password is in your clipboard", "Application Info", ModernMessageboxIcons.Info, "Ok")
             {
                 Button1Key = Key.D1,
             };
@@ -210,14 +204,14 @@ namespace MeiPassword.UI_Management
                     FileObfusicator.Crypto(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
                     File.Move(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm", PathFinding.PASSWORDFOLDER + $"{filename}.apwm");
                     File.Delete(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm");
-                    QModernMessageBox.Show($"Dein Passwort wurde gespeichert", "Erfolg!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    QModernMessageBox.Show($"password stored!", "Sucess!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                     cleatlist();
                     listadd();
                     return;
                 }
 
             }
-            QModernMessageBox.Show($"Du kannst nicht Nichts als Passwort eintragen", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+            QModernMessageBox.Show($"Nothing cant used as Password", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
 
         }
 
@@ -263,9 +257,48 @@ namespace MeiPassword.UI_Management
             File.Delete(Path.Combine(PathFinding.PASSWORDFOLDER, name));
             cleatlist();
             listadd();
-            QModernMessageBox.Show($"Das Passwort wurde gelöscht", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
+            QModernMessageBox.Show($"Success", "Delete Finish!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
         }
 
+        public void rename()
+        {
+            int data = Check_Start.checkvaleu();
+            if (data == 1) englisch();
+            if (data == 0) german();
+        }
 
+        void englisch()
+        {
+            var count = ConfigsSystem.StartUp_Count.files().Length;
+            titel_wel.Content = "WELCOME";
+            Untertitel.Content = $"Welcome {Environment.UserName}, at APM";
+            line_zwei.Content = $"{Environment.UserName}, you have {count} passwords stored";
+            Chinese_check.Content = "Asian symbols";
+            Sym.Content = "Length";
+            GeneratePW.Content = "Generate a password";
+            GenerateKeyFile.Content = "Open Crypt File Menu";
+            name_pwg.Content = "Name";
+            password_pwg.Content = "Password";
+            SaveNewPass.Content = "Save password";
+            EntschluesselSelected.Content = "Copy selected password";
+            deleteselected.Content = "Delete selected password";
+        }
+
+        void german()
+        {
+            var count = ConfigsSystem.StartUp_Count.files().Length;
+            titel_wel.Content = "Willkommen";
+            Untertitel.Content = $"Willkommen {Environment.UserName} bei APM";
+            line_zwei.Content = $"{Environment.UserName}, du hast {count} Passwörter gespeichert";
+            Chinese_check.Content = "Asiatische Symbole";
+            Sym.Content = "Länge";
+            GeneratePW.Content = "Generiere ein Passwort";
+            GenerateKeyFile.Content = "Öffne Crypt File Menu";
+            name_pwg.Content = "Name";
+            password_pwg.Content = "Passwort";
+            SaveNewPass.Content = "Speicher Passwort";
+            EntschluesselSelected.Content = "Kopiere ausgewähltes Passwort";
+            deleteselected.Content = "Lösche ausgewähltes Passwort";
+        }
     }
 }

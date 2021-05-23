@@ -41,6 +41,7 @@ namespace MeiPassword.UI_Management
             DiscordRPCCheck(Discord);
             AutoLoginCheck(check);
             this.MouseLeftButtonDown += delegate { DragMove(); };
+            rename();
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
@@ -62,7 +63,7 @@ namespace MeiPassword.UI_Management
                 Process.Start("notepad.exe", PathFinding.CONFIGFILE);
             } catch(Exception x)
             {
-                QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                QModernMessageBox.Show($"Error: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
             }
          
         }
@@ -104,7 +105,7 @@ namespace MeiPassword.UI_Management
                     }
                     catch (Exception x)
                     {
-                        QModernMessageBox.Show($"Ein Böses Errorlein: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                        QModernMessageBox.Show($"Error: \n{x}", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                     }
 
                 }
@@ -241,6 +242,52 @@ namespace MeiPassword.UI_Management
             return;
         }
 
+        public void rename()
+        {
+            int data = Check_Start.checkvaleu();
+            if (data == 1) englisch();
+            if (data == 0) german();
+        }
+        void englisch()
+        {
+            title.Content = "Settings";
+            infotext.Content = "Here you can set the program settings";
+            Music_OnOff.Content = "Activate Music";
+            Disable_Enable_Discord.Content = "Discord RPC";
+            AutoLogin.Content = "Autologin";
+            OpenPasswordFolder.Content = "Öffne Password Folder";
+            OpenFolder.Content = "Öffne Programm Folder";
+            OpenConfig.Content = "Öffne Config Folder";
+            saveset.Content = "Save";
+        }
 
+        void german()
+        {
+            title.Content = "Einstellungen";
+            infotext.Content = "Hier kannst du das Programm einstellen";
+            Music_OnOff.Content = "Aktiviere Music";
+            Disable_Enable_Discord.Content = "Discord RPC";
+            AutoLogin.Content = "Autologin";
+            OpenPasswordFolder.Content = "Open Password folder";
+            OpenFolder.Content = "Open program folder";
+            OpenConfig.Content = "Open Config folder";
+            saveset.Content = "Speichern";
+        }
+
+      
+
+        private void saveset_Click(object sender, RoutedEventArgs e)
+        {
+            int bcc = 0;
+            var MyIni = new IniFile(PathFinding.CONFIGFILE);
+            string b = langs.Name;
+            if(b == "eng")
+            {
+                MyIni.Write("Lang", "1", "System");
+            } else
+            {
+                MyIni.Write("Lang", "0", "System");
+            }
+        }
     }
 }

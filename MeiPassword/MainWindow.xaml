@@ -18,12 +18,12 @@
                 <ColumnDefinition Width="40*"/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="Willkommen" HorizontalAlignment="Center" Margin="-4,26,-3,0" VerticalAlignment="Top" Height="36" Width="496" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
-            <Label Content="Bitte gebe dein Verwendetes Passwört ein oder wenn du das Programm" HorizontalAlignment="Center" Margin="-4,67,-3,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
-            <Label Content="noch nicht verwendet hast, dann gebe neue Passwörter ein" HorizontalAlignment="Center" Margin="-4,84,-3,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <Label x:Name="titel_wel" Content="[INTERNAL ERROR]" HorizontalAlignment="Center" Margin="-4,26,-3,0" VerticalAlignment="Top" Height="36" Width="496" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <Label x:Name="des1" Content="[INTERNAL ERROR]" HorizontalAlignment="Center" Margin="-4,67,-3,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
+            <Label x:Name="des2" Content="[INTERNAL ERROR]" HorizontalAlignment="Center" Margin="-4,84,-3,0" VerticalAlignment="Top" Height="35" Width="496" Foreground="White" HorizontalContentAlignment="Center" Grid.ColumnSpan="3" />
             <PasswordBox x:Name="PasswordCrypter" HorizontalAlignment="Left" Margin="25,156,0,0" VerticalAlignment="Top" Height="28" Width="316" Background="{x:Null}" BorderBrush="#FF0040FF" Foreground="White" SelectionTextBrush="#FF464646" MaxLength="30" Grid.Column="1" FontSize="16" Grid.ColumnSpan="2" />
             <PasswordBox x:Name="Secure_key" HorizontalAlignment="Left" Margin="25,189,0,0" VerticalAlignment="Top" Height="26" Width="73" Background="{x:Null}" BorderBrush="#FF0040FF" Foreground="White" SelectionTextBrush="#FF464646" MaxLength="3" Grid.Column="1" FontSize="16" PreviewTextInput="NumberValidationTextBox"/>
-            <Label Content="Passwort" HorizontalAlignment="Left" Margin="15,156,0,0" VerticalAlignment="Top" Width="121" Foreground="White" Height="28" Grid.ColumnSpan="2" />
+            <Label x:Name="pw_text" Content="[INTERNAL ERROR]" HorizontalAlignment="Left" Margin="15,156,0,0" VerticalAlignment="Top" Width="121" Foreground="White" Height="28" Grid.ColumnSpan="2" />
             <Label Content="PIN" HorizontalAlignment="Left" Margin="15,189,0,0" VerticalAlignment="Top" Width="33" Foreground="White" Height="26" />
             <Button x:Name="Login_Button" Content="Login" HorizontalAlignment="Right" Margin="0,262,0,0" VerticalAlignment="Top" Width="249" Height="30" Background="#FF7B6EFF" Foreground="White" Click="Login_Button_Click" Style="{StaticResource Corner}" RenderTransformOrigin="0.583,0.6" Grid.Column="1" />
             <Button x:Name="CloseButton" Content="Button" Grid.Column="2" HorizontalAlignment="Left" Margin="97,0,0,0" VerticalAlignment="Top" Width="23" BorderBrush="{x:Null}" Foreground="{x:Null}" RenderTransformOrigin="1.174,0.6" Style="{StaticResource MyButton}" Height="18" Click="CloseButton_Click">
@@ -36,8 +36,7 @@
                     <ImageBrush ImageSource="Images/minimize.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
-            <Label Content="Autologin (Unsicher, nicht Empfohlen)" HorizontalAlignment="Left" Margin="48,215,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="326" Background="{x:Null}" Foreground="#FFF3F3F3" FontSize="10" Height="24"/>
-            <CheckBox x:Name="Speicher_Es" Content="" HorizontalAlignment="Left" Margin="28,220,0,0" VerticalAlignment="Top" Height="24" Width="331" Style="{DynamicResource ModernCheckbox}" FontSize="10" AutomationProperties.HelpText="Bei Aktivierung werden die Passwörter in der Config Standard Verschlüsselt gespeichert. Dies wird nicht empfohlen da man Sie einfach entschlüsseln kann" IsChecked="False" Grid.ColumnSpan="2" />
+            <CheckBox x:Name="Speicher_Es" Content="" HorizontalAlignment="Left" Margin="15,232,0,0" VerticalAlignment="Top" Height="17" Width="331" Style="{DynamicResource ModernCheckbox}" FontSize="10" AutomationProperties.HelpText="Bei Aktivierung werden die Passwörter in der Config Standard Verschlüsselt gespeichert. Dies wird nicht empfohlen da man Sie einfach entschlüsseln kann" IsChecked="False" Grid.ColumnSpan="2" />
         </Grid>
     </Border>
 </Window>

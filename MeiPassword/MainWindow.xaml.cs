@@ -69,7 +69,7 @@ namespace MeiPassword
                 data.Show();
                 this.Close();
             }
-
+            rename();
 
         }
 
@@ -147,6 +147,33 @@ namespace MeiPassword
                 
                 return;
             }
+        }
+
+
+
+        public void rename()
+        {
+            int data = Check_Start.checkvaleu();
+            if (data == 1) englisch();
+            if (data == 0) german();
+        }
+
+        void englisch()
+        {
+            titel_wel.Content = "WELCOME";
+            des1.Content = "Please enter your used password to decrypt your passwords";
+            des2.Content = "or specify a new one to save some";
+            pw_text.Content = "Password";
+            Speicher_Es.Content = "Autologin (Uncertain, not recommended)";
+        }
+
+        void german()
+        {
+            titel_wel.Content = "Willkommen";
+            des1.Content = "Bitte gebe dein verwendetes Passwort um deine Passwörter zu entschlüsseln";
+            des2.Content = "oder gebe ein neues an um welche  zu Speichern";
+            pw_text.Content = "Passwort";
+            Speicher_Es.Content = "Autologin (Unsicher, nicht empfohlen)";
         }
     }
 }
