@@ -43,7 +43,6 @@ function init(){
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(winWidth, winHeight);
-  renderer.setClearColor('#222', 1);
   document.getElementById('canvas').appendChild(renderer.domElement);
 }
 

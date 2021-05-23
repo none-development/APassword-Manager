@@ -78,9 +78,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js"></script>
     <link rel="stylesheet" href="./css/indes.main.css">
     <script src="./js/audio.min.js"></script>
+    <script src="./js/consoletroller.azusa.js"></script>
 </head>
 <body>
     <div id="canvas" class="over"></div>
+    <div id="container" touch-action="none"></div>
     <div class="intro">
         <h1>APassword Manager</h1>
         <p>Download AMP</p>
@@ -88,11 +90,11 @@
         <a href="https://github.com/Azusa-chxn/Azusa-Password-Manager" class="btn" target="_blank">Source Code</a>
       
     </div>
-    <div class="footer-sound" id="sound">
-        <span id="bar-1" class="sbar"></span>
-        <span id="bar-2" class="sbar"></span>
-        <span id="bar-3" class="sbar"></span>
-        <span id="bar-4" class="sbar"></span>
+    <div class="footer-sound down" id="sound">
+        <span id="bar-1" class="sbar noAnim"></span>
+        <span id="bar-2" class="sbar noAnim"></span>
+        <span id="bar-3" class="sbar noAnim"></span>
+        <span id="bar-4" class="sbar noAnim"></span>
     </div>
     <audio id="audio" autoplay="true"></audio>
     <script src="./js/particle.js"></script>
