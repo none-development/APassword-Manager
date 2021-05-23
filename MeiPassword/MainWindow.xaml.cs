@@ -95,7 +95,7 @@ namespace MeiPassword
             {
                 checker = false;
 
-                QModernMessageBox.Show("Bitte Fülle alle Felder aus!", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                QModernMessageBox.Show("Please fill out everything+", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                 return;
             } else
             {

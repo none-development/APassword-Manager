@@ -1,0 +1,99 @@
+<head>
+    <meta charset="utf-8">
+    <SCRIPT LANGUAGE=JavaScript>
+            var message = "APM";
+            var reps = 2;
+            var speed = 400; 
+            var p = message.length;
+            var T = "";
+            var C = 0;
+            var mC = 0;
+            var s = 0;
+            var sT = null;
+        if (reps < 1) reps = 1;
+                function doTheThing() {
+                T = message[mC];
+                A();
+                }
+        function A() {
+                s++;
+                if (s > 20) { s = 1;}
+                if (s == 1) { document.title = '╟APM──────────╢' + " oOo"; }
+                if (s == 2) { document.title = '╟─APM─────────╢' + " ooO"; }
+                if (s == 3) { document.title = '╟──APM────────╢' + " Ooo"; }
+                if (s == 4) { document.title = '╟───APM───────╢' + " oOo"; }
+                if (s == 5) { document.title = '╟────APM──────╢' + " ooO"; }
+                if (s == 6) { document.title = '╟─────APM─────╢' + " Ooo"; }
+                if (s == 7) { document.title = '╟──────APM────╢' + " oOo"; }
+                if (s == 8) { document.title = '╟────────APM──╢' + " ooO"; }
+                if (s == 9) { document.title = '╟─────────APM─╢' + " Ooo"; }
+                if (s == 10) { document.title = '╟──────────APM╢' + " oOo"; }
+                if (s == 11) { document.title = '╟──────────APM╢' + " ooO"; }
+                if (s == 12) { document.title = '╟─────────APM─╢' + " Ooo"; }
+                if (s == 13) { document.title = '╟────────APM──╢' + " oOo"; }
+                if (s == 14) { document.title = '╟───────APM───╢' + " ooO"; }
+                if (s == 15) { document.title = '╟──────APM────╢' + " Ooo"; }
+                if (s == 16) { document.title = '╟─────APM─────╢' + " oOo"; }
+                if (s == 17) { document.title = '╟────APM──────╢' + " ooO"; }
+                if (s == 18) { document.title = '╟───APM───────╢' + " Ooo"; }
+                if (s == 19) { document.title = '╟──APM────────╢' + " oOo"; }
+                if (s == 20) { document.title = '╟─APM─────────╢' + " ooO"; }
+                if (C < (20 * reps)) {
+                    sT = setTimeout("A()", speed);
+                C++;
+        }
+        else {
+            C = 0;
+            s = 0;
+            mC++;
+            if(mC > p - 1) mC = 0;
+            sT = null;
+            doTheThing();
+            }
+        }
+        doTheThing();
+        document.documentElement.style.cursor = 'url("https://neko-chxn.xyz/img/index/16.png"), auto';
+        </script> 
+    <!-- Primary Meta Tags -->
+    <title>APassword Manager</title>
+    <meta name="title" content="APassword Manager">
+    <meta name="description" content="A Password manager for Windows. Free and open Source!">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xn--m9ha37aaaaa.simp-to.me/">
+    <meta property="og:title" content="APassword Manager">
+    <meta property="og:description" content="A Password manager for Windows. Free and open Source!">
+    <meta property="og:image" content="https://media1.tenor.com/images/e3d74c47cafa47bec8717ee51c3f8ae2/tenor.gif">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://xn--m9ha37aaaaa.simp-to.me/">
+    <meta property="twitter:title" content="APassword Manager">
+    <meta property="twitter:description" content="A Password manager for Windows. Free and open Source!">
+    <meta property="twitter:image" content="https://media1.tenor.com/images/e3d74c47cafa47bec8717ee51c3f8ae2/tenor.gif">
+      <!-- End META -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js" integrity="sha512-gQVBYBvfC+uyor5Teonjr9nmY1bN+DlOCezkhzg4ShpC5q81ogvFsr5IV4xXAj6HEtG7M1Pb2JCha97tVFItYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r72/three.min.js"></script>
+    <link rel="stylesheet" href="./css/indes.main.css">
+    <script src="./js/audio.min.js"></script>
+</head>
+<body>
+    <div id="canvas" class="over"></div>
+    <div class="intro">
+        <h1>APassword Manager</h1>
+        <p>Download AMP</p>
+        <a href="./files/installer.exe" class="btn" download>Download APM</a>
+        <a href="https://github.com/Azusa-chxn/Azusa-Password-Manager" class="btn" target="_blank">Source Code</a>
+      
+    </div>
+    <div class="footer-sound" id="sound">
+        <span id="bar-1" class="sbar"></span>
+        <span id="bar-2" class="sbar"></span>
+        <span id="bar-3" class="sbar"></span>
+        <span id="bar-4" class="sbar"></span>
+    </div>
+    <audio id="audio" autoplay="true"></audio>
+    <script src="./js/particle.js"></script>
+</body>

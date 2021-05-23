@@ -14,5 +14,9 @@ namespace MeiPassword.Algorythmen
         public static string filename_message = ".smapws";
         public static string messSyst = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static string MessageSpace = Path.Combine(messSyst + @"\APWA\");
+
+
+
+        public static check() { }
     }
 }
