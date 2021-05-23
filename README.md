@@ -33,10 +33,9 @@ Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc
 
 # Feature List
 
-### All Feature (v0.1)
-* Password Management
-* File-Crypten
-* Local
+### All Feature (v0.2)
+* Support now English 
+* Bug Fix
 
 # Future Updates
 
