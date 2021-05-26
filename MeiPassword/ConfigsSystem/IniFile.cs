@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MeiPassword.ConfigsSystem
 {
-    internal class IniFile   // revision 11
+    internal class IniFile 
     {
         private string Path;
         private string EXE = Assembly.GetExecutingAssembly().GetName().Name;
