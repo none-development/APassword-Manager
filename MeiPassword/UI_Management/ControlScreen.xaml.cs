@@ -282,6 +282,12 @@ namespace MeiPassword.UI_Management
             SaveNewPass.Content = "Save password";
             EntschluesselSelected.Content = "Copy selected password";
             deleteselected.Content = "Delete selected password";
+            Settings.ToolTip = "Open the settings";
+            GeneratePW.ToolTip = "Generate a secure password and save it to your clipboard";
+            GenerateKeyFile.ToolTip = "Open a menu with which you can encrypt and send files.";
+            SaveNewPass.ToolTip = "Save a password";
+            EntschluesselSelected.ToolTip = "Decrypt and display an encrypted password";
+            deleteselected.ToolTip = "Delete the selected password";
         }
 
         void german()
@@ -299,6 +305,12 @@ namespace MeiPassword.UI_Management
             SaveNewPass.Content = "Speicher Passwort";
             EntschluesselSelected.Content = "Kopiere ausgewähltes Passwort";
             deleteselected.Content = "Lösche ausgewähltes Passwort";
+            Settings.ToolTip = "Öffne die Einstellungen";
+            GeneratePW.ToolTip = "Generiere ein Sicheres Passwort und Speicher es in deine Zwischenablage";
+            GenerateKeyFile.ToolTip = "Öffne ein Menu mit dem du Datein verschlüsseln und Verschicken kannst.";
+            SaveNewPass.ToolTip = "Speicher ein Passwort ab";
+            EntschluesselSelected.ToolTip = "Entschlüsse und Zeige ein Verschlüsseltes Passwort an";
+            deleteselected.ToolTip = "Lösche das ausgewählte Passwort";
         }
     }
 }

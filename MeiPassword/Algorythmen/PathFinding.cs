@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MeiPassword.ConfigsSystem;
+using System;
 using System.IO;
 
 namespace MeiPassword.Algorythmen
@@ -14,5 +15,26 @@ namespace MeiPassword.Algorythmen
         public static string filename_message = ".smapws";
         public static string messSyst = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         public static string MessageSpace = Path.Combine(messSyst + @"\APWA\");
+
+
+
+        public static string Pathpasswords()
+        {
+            var MyIni = new IniFile(CONFIGFILE);
+            string b = MyIni.Read("Lang", "System");
+            string hst = "";
+            if (b == "")
+            {
+               hst = Path.Combine(LOCALROW, @"APWA\PSWORD\");
+            }
+
+            if(b != "")
+            {
+                hst = b;
+            }
+            return hst;
+        }
+
     }
+
 }

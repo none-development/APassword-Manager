@@ -41,6 +41,8 @@ namespace MeiPassword.ConfigsSystem
                 MyIni.Write("DiscordRPC", "true", "System");
                 MyIni.Write("AutoLogin", "false", "System");
                 MyIni.Write("Lang", "1", "System");
+                MyIni.Write("Path", "", "System");
+
                 //Save Passwords
                 MyIni.Write("PIN", "", "PasswortFileSystem");
                 MyIni.Write("PSW2", "", "PasswortFileSystem");
