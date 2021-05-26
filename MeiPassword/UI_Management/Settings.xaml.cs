@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MeiPassword.Algorythmen;
 using MeiPassword.ConfigsSystem;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using ModernMessageBoxLib;
 
 namespace MeiPassword.UI_Management
@@ -255,10 +256,11 @@ namespace MeiPassword.UI_Management
             Music_OnOff.Content = "Activate Music";
             Disable_Enable_Discord.Content = "Discord RPC";
             AutoLogin.Content = "Autologin";
-            OpenPasswordFolder.Content = "Öffne Password Folder";
-            OpenFolder.Content = "Öffne Programm Folder";
-            OpenConfig.Content = "Öffne Config Folder";
+            OpenPasswordFolder.Content = "Open Password folder";
+            OpenFolder.Content = "Open program folder";
+            OpenConfig.Content = "Open Config folder";
             saveset.Content = "Save";
+            passwordfolder.Content = "Change password location";
         }
 
         void german()
@@ -268,10 +270,11 @@ namespace MeiPassword.UI_Management
             Music_OnOff.Content = "Aktiviere Music";
             Disable_Enable_Discord.Content = "Discord RPC";
             AutoLogin.Content = "Autologin";
-            OpenPasswordFolder.Content = "Open Password folder";
-            OpenFolder.Content = "Open program folder";
-            OpenConfig.Content = "Open Config folder";
+            OpenPasswordFolder.Content = "Öffne Password Ordner";
+            OpenFolder.Content = "Öffne Programm Ordner";
+            OpenConfig.Content = "Öffne Config Ordner";
             saveset.Content = "Speichern";
+            passwordfolder.Content = "Ändere Passwort Speicherort";
         }
 
       
@@ -288,6 +291,26 @@ namespace MeiPassword.UI_Management
             {
                 MyIni.Write("Lang", "0", "System");
             }
+        }
+
+        private void passwordfolder_Click(object sender, RoutedEventArgs e)
+        {
+            var MyIni = new IniFile(PathFinding.CONFIGFILE);
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog();
+            dialog.ResetUserSelections();
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Roaming\";
+            dialog.IsFolderPicker = true;
+            dialog.Title = @"Select Discord Folder";
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                info(dialog.FileName);
+            }
+        }
+
+
+        private void info(string Message)
+        {
+            QModernMessageBox.Show($"Info:\n{Message}", "Application Information", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
         }
     }
 }

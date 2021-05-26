@@ -35,6 +35,7 @@
                 <ComboBoxItem Name="ger" IsSelected="False" Content="German"></ComboBoxItem>
             </ComboBox>
             <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="186,147,0,0" VerticalAlignment="Top" Width="98" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
+            <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="176,200,0,0" VerticalAlignment="Top" Width="151" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
         </Grid>
     </Border>
 </Window>

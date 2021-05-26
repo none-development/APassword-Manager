@@ -19,9 +19,9 @@ namespace MeiPassword
         private readonly string pw = "31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSIie";
         public MainWindow()
         {
-            var MyIni = new IniFile(PathFinding.CONFIGFILE);
+           
             ConfigsSystem.Check_Start.Check();
-
+            var MyIni = new IniFile(PathFinding.CONFIGFILE);
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
             string privatecy = MyIni.Read("PrivatePolicy", "System");
@@ -95,7 +95,7 @@ namespace MeiPassword
             {
                 checker = false;
 
-                QModernMessageBox.Show("Please fill out everything+", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                QModernMessageBox.Show("Please fill in all fields!", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
                 return;
             } else
             {

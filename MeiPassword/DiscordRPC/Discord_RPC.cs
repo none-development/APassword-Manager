@@ -58,7 +58,7 @@ namespace MeiPassword.DiscordRPC
                     Buttons = new Button[]
                         {
                             new Button() { Label = "Join Discord", Url = "https://discord.gg/4hxd728g6s" },
-                            new Button() { Label = "´Somne Music", Url = "https://youtu.be/J8GMOKcpcj4" }
+                            new Button() { Label = "Some Music", Url = "https://youtu.be/J8GMOKcpcj4" }
                         }
                 });
             }

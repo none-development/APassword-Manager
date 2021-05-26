@@ -15,22 +15,4 @@
         console.log('%c ', style);
     };
     image.src = url;
-    console.log("DANCE");
-})('https://i.pinimg.com/originals/49/26/52/492652d5649bb403be09e0ea3d04fbe7.gif');
-
-
-(function(url) {
-
-    var image = new Image();
-
-    image.onload = function() {
-
-        var style = [
-            'position: relative;',
-            'font-size: 24px;'
-        ].join(' ');
-        console.log('%cHello', style);
-    };
-    image.src = url;
-    console.log("DANCE");
-})('https://i.pinimg.com/originals/49/26/52/492652d5649bb403be09e0ea3d04fbe7.gif');
+})('https://data.whicdn.com/images/208532956/original.gif');

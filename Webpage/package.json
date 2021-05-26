@@ -8,7 +8,7 @@
     "dev": "nodemon main.js"
   },
   "author": "Azusa",
-  "license": "AGPL-3.0",
+  "license": "ISC",
   "dependencies": {
     "connect-flash": "^0.1.1",
     "ddos": "^0.2.1",

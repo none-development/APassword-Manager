@@ -3,7 +3,7 @@
     html, body {
         font-family: 'Roboto Mono', monospace;
         background: #1e2124;
-        color: rgb(58, 143, 58);
+        color: rgb(72, 115, 255);
         overflow: hidden;
         margin: 0 !important;
         padding: 0 !important;
@@ -13,7 +13,7 @@
         position: absolute;
     }
 
-    
+
     /*Scrollbar*/
     ::-webkit-scrollbar-track {
         border-radius: 50px !important;
@@ -123,16 +123,18 @@
     }
     .intro {
         left: 0;
-        top: 50%;
+        bottom: 100%;
         padding: 0 20px;
+        padding-top: 12%;
         width: 100%;
         text-align: center;
       }
       h1 {
         text-transform: uppercase;
         position: relative;
-        font-size: 45px;
+        font-size: 40px;
         letter-spacing: 0.020em;
+        animation: glitch 4s ease-in-out infinite;
         -webkit-transition: all 0.4s;
         -moz-transition: all 0.4s;
           -o-transition: all 0.4s;
@@ -140,17 +142,22 @@
       }
       h1::after {
         content: '';
-        width: 80px;
+        width: 500px;
         display: block;
-        background: rgb(0, 161, 22);
-        height: 10px;
+        background: rgb(72, 115, 255);
+       box-shadow: 0.5px 0 0 rgb(154, 178, 255);
+        height: 5px;
         margin: 30px auto;
         line-height: 1.1;
+        
       }
       h1:hover{
         color: #ffffff;
         animation: headliner 3s ease-in-out infinite;
-        
+      }
+      h1:hover::after{
+            color: #ffffff;
+            animation: headliner 3s ease-in-out infinite;
       }
       p {
         position: relative;
@@ -160,14 +167,14 @@
       .btn {
         display: inline-block;
         position:relative;
-        border: 2px solid rgb(255, 0, 0);
+        border: 2px solid rgb(72, 115, 255);
         text-transform: uppercase;
         letter-spacing: 0.015em;
         padding: 10px 20px;
         font-size: 12px;
         font-weight: 700;
         line-height: 1;
-        color: rgb(255, 0, 0);
+        color: rgb(72, 115, 255);
         text-decoration: none;
         -webkit-transition: all 0.4s;
            -moz-transition: all 0.4s;
@@ -180,17 +187,18 @@
         
         background-image: url(https://i.imgur.com/CS9dLjS.gif);
         text-decoration: none;
+        animation: buttoncolor 8s ease-in-out infinite;
       }
 
       .easteregg {
         position: relative;
         margin: 0 0 30px 0;
         font-size: 24px;
+        animation: buttoncolor 8s ease-in-out infinite;
       }
       .easteregg:hover {
         color: #ffffff;
         border-color: #ffffff;
-        
         background-image: url(https://i.imgur.com/CS9dLjS.gif);
         text-decoration: none;
         animation: easteregg 8s ease-in-out infinite;
@@ -231,15 +239,66 @@
         }   
     }
 
+    @keyframes buttoncolor {
+
+            0% {text-shadow: 1px 0 0 red, -1px 0 0 blue; color: rgb(72, 115, 255); border-color: rgb(72, 115, 255);}
+            4% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+            5% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            10% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            11% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+            15% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+            16% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+            20% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+            21% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+            25% {color: rgb(122, 87, 248);  border-color: rgb(122, 87, 248);}
+            30% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+            31% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+            40% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+            41% {text-shadow: 50px 0 0 blue, -50px 0 0 lime;}
+            42% {text-shadow: 0 0 0 blue, 0 0 0 lime;}
+            43% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+            46% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+            47% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+            50% {text-shadow: -1px 0 0 red, 1px 0 0 lime; color: rgb(235, 155, 255); border-color: rgb(235, 155, 255);}
+            51% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+            55% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+            56% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            60% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            61% {text-shadow: 30px 0 0 red, -30px 0 0 lime;}
+            62% {text-shadow: 0 0 0 red, 0 0 0 lime;}
+            63% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+            66% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+            67% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            70% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            71% {text-shadow: 70px 0 0 red, -70px 0 0 blue;}
+            72% {text-shadow: 0 0 0 red, 0 0 0 blue;}
+            73% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+            75%{ color: rgb(122, 87, 248);border-color: rgb(122, 87, 248);}
+            76% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+            77% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            80% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+            81% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+            85% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+            86% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+            90% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+            91% {text-shadow: 60px 0 0 lime, -60px 0 0 blue;}
+            92% {text-shadow: 0 0 0 lime, 0 0 0 blue;}
+            92% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+            95% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+            96% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+            99% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+            100% {text-shadow: -1px 0 0 blue, 1px 0 0 lime; color: rgb(72, 115, 255); border-color: rgb(72, 115, 255);}
+    }
+
     @keyframes headliner {
         0% {
-            color: rgb(0, 161, 22);
+            color: rgb(72, 115, 255);
         }
         50% {
-            color: rgba(9, 255, 0, 0.384);
+            color: rgba(72, 115, 255, 0.329);
         }
         100% {
-            color: rgb(0, 161, 22);
+            color: rgb(72, 115, 255);
         }
     }
     @-webkit-keyframes danceHeight1 {
@@ -313,4 +372,54 @@
             height: 8px;
         }
     }
+    
+    @keyframes glitch {
+        0% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+        4% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+        5% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        10% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        11% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+        15% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+        16% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+        20% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+        21% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+        30% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+        31% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+        40% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+        41% {text-shadow: 50px 0 0 blue, -50px 0 0 lime;}
+        42% {text-shadow: 0 0 0 blue, 0 0 0 lime;}
+        43% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+        46% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+        47% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+        50% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+        51% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+        55% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+        56% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        60% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        61% {text-shadow: 30px 0 0 red, -30px 0 0 lime;}
+        62% {text-shadow: 0 0 0 red, 0 0 0 lime;}
+        63% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+        66% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;}
+        67% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        70% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        71% {text-shadow: 70px 0 0 red, -70px 0 0 blue;}
+        72% {text-shadow: 0 0 0 red, 0 0 0 blue;}
+        73% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+        76% {text-shadow: 1px 0 0 red, -1px 0 0 blue;}
+        77% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        80% {text-shadow: -1px 0 0 red, 1px 0 0 blue;}
+        81% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+        85% {text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;}
+        86% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+        90% {text-shadow: -1px 0 0 red, 1px 0 0 lime;}
+        91% {text-shadow: 60px 0 0 lime, -60px 0 0 blue;}
+        92% {text-shadow: 0 0 0 lime, 0 0 0 blue;}
+        92% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+        95% {text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;}
+        96% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+        99% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+        100% {text-shadow: -1px 0 0 blue, 1px 0 0 lime;}
+      }
+
+      
     

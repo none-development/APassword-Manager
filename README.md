@@ -30,6 +30,19 @@ Dowload on [Hidden Webservice](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodb
 
 Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc2ad.onion/) 
 
+# FAQ
+
+***How can I bring my own features as an idea?***
+
+You can add your own ideas in the Discussions tap. You can also create an Issues and share your ideas or others there.
+
+***Is there a premium version?***
+
+No, will also never be.
+
+***I have found a bug***
+
+Please report this.
 
 # Feature List
 
@@ -46,8 +59,8 @@ Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc
 - [x] Support English
 - [x] Language selection
 - [x] Webpage
+- [ ] Color Settings
 - [ ] Custom Path for passwords
 - [ ] Adroid App
-- [ ] Color Settings
 - [ ] Show Discord Name on it
 - [ ] Chrome, Firefox Extensions

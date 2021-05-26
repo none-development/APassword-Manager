@@ -7,19 +7,22 @@ winWidth = window.innerWidth;
 winHeight = window.innerHeight;
 window.addEventListener( 'resize', onWindowResize, false );
 
+
 init();
 animate();
 
 function init(){
+  const texture2 = new THREE.TextureLoader().load( "./js/circle.png" );
   scene = new THREE.Scene();
-  scene.fog = new THREE.FogExp2('#FF00F3', 0.001);
+  scene.fog = new THREE.FogExp2(0xFF0000, 0.0009);
 
   camera = new THREE.PerspectiveCamera(75, winWidth/winHeight, 1,1500);
   camera.position.x = 50;
 
 
   material = new THREE.PointsMaterial({
-    color: 0x790202,
+    map: texture2,
+    color: 0x4287f5,
     size: 2,
     transparent: true,
     blending: THREE.AdditiveBlending
@@ -43,6 +46,7 @@ function init(){
 
   renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setSize(winWidth, winHeight);
+  renderer.setClearColor('#222', 1);
   document.getElementById('canvas').appendChild(renderer.domElement);
 }
 
@@ -80,3 +84,5 @@ function onWindowResize(){
   camera.updateProjectionMatrix();
   renderer.setSize( window.innerWidth, window.innerHeight );
 }
+
+
