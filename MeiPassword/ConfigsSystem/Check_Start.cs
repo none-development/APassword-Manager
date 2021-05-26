@@ -59,7 +59,6 @@ namespace MeiPassword.ConfigsSystem
 
             }
 
-
         }
 
         public static int checkvaleu()
