@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Title="Settings" Height="367.256" Width="352.439" Background="{x:Null}" Foreground="{x:Null}">
-    <Border BorderThickness="5,10,15,20" Background="#FF38366A" Padding="5" CornerRadius="15" BorderBrush="#FF38366A" OpacityMask="#FF38366A">
+    <Border BorderThickness="5,10,15,20" Background="#FF38366A" Padding="5" CornerRadius="15" BorderBrush="#FF38366A" OpacityMask="#FF38366A" Margin="0,0,0,-44">
         <Grid x:Name="Minmize" Margin="-5,-7,-10,-15" Background="#FF38366A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*" />
@@ -23,37 +23,26 @@
             </Button>
             <CheckBox x:Name="Music_OnOff" Content="Aktiviere Music" HorizontalAlignment="Left" Margin="23,62,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="17" Width="140" Style="{StaticResource ModernCheckbox}" Click="Music_OnOff_Checked" IsChecked="False"/>
             <CheckBox x:Name="Disable_Enable_Discord" Content="Aktiviere Discord RPC" HorizontalAlignment="Left" Margin="23,84,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="17" Width="140" Style="{StaticResource ModernCheckbox}" Click="Disable_Enable_Discord_Checked" IsChecked="True"/>
-            <Button x:Name="OpenPasswordFolder" Content="Öffne Password Folder" HorizontalAlignment="Left" Margin="10,272,0,0" VerticalAlignment="Top" Width="161" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenPasswordFolder_Click" />
-            <Button x:Name="OpenConfig" Content="Öffne Config Folder" HorizontalAlignment="Left" Margin="171,307,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenConfig_Click" />
-            <Button x:Name="OpenFolder" Content="Öffne Programm Folder" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" Width="161" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenFolder_Click" />
+            <Button x:Name="OpenPasswordFolder" Content="Öffne Password Folder" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="161" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenPasswordFolder_Click" />
+            <Button x:Name="OpenConfig" Content="Öffne Config Folder" HorizontalAlignment="Left" Margin="171,351,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenConfig_Click" />
+            <Button x:Name="OpenFolder" Content="Öffne Programm Folder" HorizontalAlignment="Left" Margin="10,353,0,0" VerticalAlignment="Top" Width="161" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="OpenFolder_Click" />
             <Label x:Name="title" Content="Einstellungen" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White"/>
             <CheckBox x:Name="AutoLogin" Content="Autologin" HorizontalAlignment="Left" Margin="23,106,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="140" Background="White" Style="{StaticResource ModernCheckbox}" Click="AutoLogin_Checked"/>
             <Label x:Name="infotext" Content="Hier kannst du das Programm einstellen" HorizontalAlignment="Left" Margin="23,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White" FontSize="8"/>
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2" Background="White"/>
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="223" Grid.ColumnSpan="2" Background="White"/>
-            <ComboBox x:Name="langs" HorizontalAlignment="Left" Margin="23,147,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#72000000" Foreground="#FFFBFBFB" BorderBrush="#72000000" FontSize="12" FontFamily="Yu Gothic">
+            <ComboBox x:Name="langs" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top" Width="161" Grid.ColumnSpan="2" Background="#72000000" Foreground="#FFFBFBFB" BorderBrush="#72000000" FontSize="12" FontFamily="Yu Gothic">
                 <ComboBoxItem Name="eng" IsSelected="True" Content="Englisch"></ComboBoxItem>
                 <ComboBoxItem Name="ger" IsSelected="False" Content="German"></ComboBoxItem>
             </ComboBox>
 
-            <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="171,147,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
-            <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="171,200,0,0" VerticalAlignment="Top" Width="156" Height="33" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
-
-            <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="186,147,0,0" VerticalAlignment="Top" Width="98" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
-            <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="176,200,0,0" VerticalAlignment="Top" Width="151" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
+            <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="171,279,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
+            <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="171,316,0,0" VerticalAlignment="Top" Width="156" Height="33" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
 
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2" Background="White"/>
-            <ComboBox x:Name="langs" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2" Background="#72000000" Foreground="#FFFBFBFB" BorderBrush="#72000000" FontSize="12" FontFamily="Yu Gothic">
-                <ComboBoxItem Name="eng" IsSelected="True" Content="Englisch"></ComboBoxItem>
-                <ComboBoxItem Name="ger" IsSelected="False" Content="German"></ComboBoxItem>
-            </ComboBox>
-            <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="171,234,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
-            <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="171,271,0,0" VerticalAlignment="Top" Width="156" Height="33" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
             <TextBox x:Name="background_color" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="23,138,0,0" TextWrapping="Wrap" Text="Not Jet" VerticalAlignment="Top" Width="140" Background="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}"/>
             <Label x:Name="color" Content="" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="140" Foreground="White" FontSize="9"/>
-            <Border BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="23,161,0,0" VerticalAlignment="Top" Width="140" Background="White" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
-
-            </Border>
+            <Border BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="23,161,0,0" VerticalAlignment="Top" Width="140" Background="White" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" BorderBrush="White"/>
         </Grid>
     </Border>
 </Window>
