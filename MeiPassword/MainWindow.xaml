@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Title="Login" Height="347" Width="504.5" Background="Transparent" Foreground="Transparent">
-    <Border BorderThickness="5,10,15,20" Background="#FF424242" Padding="5" CornerRadius="15" BorderBrush="#FF424242" OpacityMask="#FF424242">
+    <Border x:Name="background" BorderThickness="5,10,15,20" Background="#FF424242" Padding="5" CornerRadius="15" BorderBrush="#FF424242" OpacityMask="#FF424242">
         <Grid Margin="-5,-7,-10,-15" Background="#FF424242">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="40*" />

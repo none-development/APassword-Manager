@@ -42,6 +42,8 @@ namespace MeiPassword.ConfigsSystem
                 MyIni.Write("AutoLogin", "false", "System");
                 MyIni.Write("Lang", "1", "System");
                 MyIni.Write("Path", "", "System");
+                MyIni.Write("Color_Background", "#FF454447", "System");
+                MyIni.Write("Color_Font", "", "System");
 
                 //Save Passwords
                 MyIni.Write("PIN", "", "PasswortFileSystem");

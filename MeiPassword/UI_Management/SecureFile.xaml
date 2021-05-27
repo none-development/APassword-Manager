@@ -10,7 +10,7 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Title="SecureFile" Height="418.333" Width="359.653" Background="{x:Null}" Foreground="{x:Null}">
-    <Border  Background="#FF454447" Padding="5" CornerRadius="15" BorderBrush="#FF454447" OpacityMask="#FF454447" Height="418" VerticalAlignment="Bottom">
+    <Border x:Name="background"  Background="#FF454447" Padding="5" CornerRadius="15" BorderBrush="#FF454447" OpacityMask="#FF454447" Height="418" VerticalAlignment="Bottom">
         <Grid x:Name="Minmize" Margin="5,1,0,5" Background="#FF454447">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*" />
