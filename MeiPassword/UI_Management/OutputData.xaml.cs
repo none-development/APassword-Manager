@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MeiPassword.Algorythmen;
 using MeiPassword.BackgroundSysteme;
 using MeiPassword.ConfigsSystem;
+using MeisXOR;
 using ModernMessageBoxLib;
 
 namespace MeiPassword.UI_Management

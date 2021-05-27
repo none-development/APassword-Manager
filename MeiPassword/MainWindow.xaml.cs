@@ -75,7 +75,12 @@ namespace MeiPassword
 
         private void Login_Button_Click(object sender, RoutedEventArgs e)
         {
-
+            /*
+            UI_Management.ControlScreen data = new UI_Management.ControlScreen();
+            data.Show();
+            this.Close();
+            */
+            
             bool checker = false;
 
             if (PasswordCrypter.Password.Length > 15)
@@ -139,6 +144,7 @@ namespace MeiPassword
 
             if (Speicher_Es.IsChecked == false)
             {
+                
                 return;
             }
         }

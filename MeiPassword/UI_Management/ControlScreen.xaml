@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Title="Management" Height="450" Width="835.237" Background="Transparent" Foreground="Transparent">
-    <Border x:Name="background" BorderThickness="5,10,15,20" Background="#FF424242" Padding="5" CornerRadius="15" BorderBrush="#FF424242" OpacityMask="#FF424242">
+    <Border BorderThickness="5,10,15,20" Background="#FF424242" Padding="5" CornerRadius="15" BorderBrush="#FF424242" OpacityMask="#FF424242">
         <Grid x:Name="Minmize" Margin="-5,-7,-10,-15" Background="#FF424242">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*" />
