@@ -261,6 +261,7 @@ namespace MeiPassword.UI_Management
             OpenConfig.Content = "Open Config folder";
             saveset.Content = "Save";
             passwordfolder.Content = "Change password location";
+            color.Content = "Change color as HTML";
         }
 
         void german()
@@ -275,13 +276,13 @@ namespace MeiPassword.UI_Management
             OpenConfig.Content = "Öffne Config Ordner";
             saveset.Content = "Speichern";
             passwordfolder.Content = "Ändere Passwort Speicherort";
+            color.Content = "Farbe als HTML";
         }
 
       
 
         private void saveset_Click(object sender, RoutedEventArgs e)
         {
-            int bcc = 0;
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
             string b = langs.SelectedValue.ToString();
             if (b.Contains("Englisch"))

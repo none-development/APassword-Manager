@@ -11,7 +11,7 @@ namespace MeiPassword.Algorythmen
         public static string LACALFOLDERConfig = Path.Combine(LOCALROW, @"APWA\config\");
         public static string PASSWORDFOLDER = Path.Combine(LOCALROW, @"APWA\PSWORD\");
         public static string MAIN = Path.Combine(LOCALROW, @"APWA\");
-        public static string CONFIGFILE = AppDomain.CurrentDomain.BaseDirectory + @"data\config.ini";
+        public static string CONFIGFILE = AppDomain.CurrentDomain.BaseDirectory + @"config.ini";
         public static string filename = ".apwm";
         public static string filename_message = ".smapws";
         public static string messSyst = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
