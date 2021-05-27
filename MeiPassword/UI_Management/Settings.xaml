@@ -29,23 +29,19 @@
             <Label x:Name="title" Content="Einstellungen" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White"/>
             <CheckBox x:Name="AutoLogin" Content="Autologin" HorizontalAlignment="Left" Margin="23,106,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="140" Background="White" Style="{StaticResource ModernCheckbox}" Click="AutoLogin_Checked"/>
             <Label x:Name="infotext" Content="Hier kannst du das Programm einstellen" HorizontalAlignment="Left" Margin="23,36,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="230" Foreground="White" FontSize="8"/>
-<<<<<<< Updated upstream
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2" Background="White"/>
-=======
-<<<<<<< Updated upstream
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="223" Grid.ColumnSpan="2" Background="White"/>
->>>>>>> Stashed changes
             <ComboBox x:Name="langs" HorizontalAlignment="Left" Margin="23,147,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2" Background="#72000000" Foreground="#FFFBFBFB" BorderBrush="#72000000" FontSize="12" FontFamily="Yu Gothic">
                 <ComboBoxItem Name="eng" IsSelected="True" Content="Englisch"></ComboBoxItem>
                 <ComboBoxItem Name="ger" IsSelected="False" Content="German"></ComboBoxItem>
             </ComboBox>
-<<<<<<< Updated upstream
+
             <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="171,147,0,0" VerticalAlignment="Top" Width="156" Height="32" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
             <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="171,200,0,0" VerticalAlignment="Top" Width="156" Height="33" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
-=======
+
             <Button x:Name="saveset" Content="" HorizontalAlignment="Left" Margin="186,147,0,0" VerticalAlignment="Top" Width="98" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="saveset_Click" />
             <Button x:Name="passwordfolder" Content="" HorizontalAlignment="Left" Margin="176,200,0,0" VerticalAlignment="Top" Width="151" Height="30" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" FontSize="7" Click="passwordfolder_Click"/>
-=======
+
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="3" Margin="23,30,0,0" VerticalAlignment="Top" Width="230" Grid.ColumnSpan="2" Background="White"/>
             <ComboBox x:Name="langs" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2" Background="#72000000" Foreground="#FFFBFBFB" BorderBrush="#72000000" FontSize="12" FontFamily="Yu Gothic">
                 <ComboBoxItem Name="eng" IsSelected="True" Content="Englisch"></ComboBoxItem>
@@ -56,10 +52,8 @@
             <TextBox x:Name="background_color" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="23,138,0,0" TextWrapping="Wrap" Text="Not Jet" VerticalAlignment="Top" Width="140" Background="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" BorderBrush="{x:Null}"/>
             <Label x:Name="color" Content="" HorizontalAlignment="Left" Margin="23,122,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="140" Foreground="White" FontSize="9"/>
             <Border BorderThickness="1" HorizontalAlignment="Left" Height="2" Margin="23,161,0,0" VerticalAlignment="Top" Width="140" Background="White" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
-                
+
             </Border>
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         </Grid>
     </Border>
 </Window>
