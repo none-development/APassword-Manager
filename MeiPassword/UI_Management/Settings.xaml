@@ -9,8 +9,8 @@
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        Title="Settings" Height="367.256" Width="352.439" Background="{x:Null}" Foreground="{x:Null}">
-    <Border BorderThickness="5,10,15,20" Background="#FF38366A" Padding="5" CornerRadius="15" BorderBrush="#FF38366A" OpacityMask="#FF38366A" Margin="0,0,0,-44">
+        Title="Settings" Height="450.589" Width="352.439" Background="{x:Null}" Foreground="{x:Null}">
+    <Border BorderThickness="5,10,15,20" Background="#FF38366A" Padding="5" CornerRadius="15" BorderBrush="#FF38366A" OpacityMask="#FF38366A">
         <Grid x:Name="Minmize" Margin="-5,-7,-10,-15" Background="#FF38366A">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*" />

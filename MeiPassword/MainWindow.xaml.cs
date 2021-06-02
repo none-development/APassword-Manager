@@ -16,6 +16,8 @@ namespace MeiPassword
     {
        public bool priv { get; set; }
         public bool priv2 { get; set; }
+        private protected string pepper = "BisWQGz6G_ntJdjd55wadTBbGSoR9ygvjhHFö.7474";
+        private protected string sugar = "}98d874//%&";
         private readonly string pw = "31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSIie";
         public MainWindow()
         {
@@ -63,7 +65,7 @@ namespace MeiPassword
             }
             if (AutoLogins)
             {
-                Algorythmen.Auth_Class_System.password_crypt = MeisXOR.XORConverter.MeiXORDecrypt(MyIni.Read("PSW2", "PasswortFileSystem").ToString(), pw);
+                Algorythmen.Auth_Class_System.password_crypt = sugar + MeisXOR.XORConverter.MeiXORDecrypt(MyIni.Read("PSW2", "PasswortFileSystem").ToString(), pw) + pepper;
                 Algorythmen.Auth_Class_System.salt_key = MeisXOR.XORConverter.MeiXORDecrypt(MyIni.Read("PIN", "PasswortFileSystem").ToString(), pw);
                 UI_Management.ControlScreen data = new UI_Management.ControlScreen();
                 data.Show();
@@ -77,10 +79,14 @@ namespace MeiPassword
         {
 
             bool checker = false;
-
+            if (PasswordCrypter.Password.Length < 15)
+            {
+                QModernMessageBox.Show("Your password is not long enough", "Application Error", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                return;
+            }
             if (PasswordCrypter.Password.Length > 15)
             {
-                Algorythmen.Auth_Class_System.password_crypt = PasswordCrypter.Password;
+                Algorythmen.Auth_Class_System.password_crypt = sugar+PasswordCrypter.Password + pepper;
             }
             if (Secure_key.Password != "")
             {
@@ -100,7 +106,7 @@ namespace MeiPassword
 
             if (checker)
             {
-                SChecked(Algorythmen.Auth_Class_System.password_crypt, Algorythmen.Auth_Class_System.salt_key);
+                SChecked(Algorythmen.Auth_Class_System.password_crypt, Algorythmen.Auth_Class_System.salt_key.ToString());
                 UI_Management.ControlScreen data = new UI_Management.ControlScreen();
                 data.Show();
                 this.Hide();

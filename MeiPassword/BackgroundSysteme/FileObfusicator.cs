@@ -6,12 +6,11 @@ namespace MeiPassword.BackgroundSysteme
 {
     public class FileObfusicator
     {
-        private static int salt = Int32.Parse(Algorythmen.Auth_Class_System.salt_key);
-
+        private static byte saltss = Convert.ToByte(Algorythmen.Auth_Class_System.salt_key);
        
         public static void Crypto(string inputFile)
         {
-            byte[] salt = GenerateRandomSalt();
+            byte[] salt = new byte[saltss];
             FileStream fsCrypt = new FileStream(inputFile + Algorythmen.PathFinding.filename, FileMode.Create);
             byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(Algorythmen.Auth_Class_System.password_crypt);
             RijndaelManaged AES = new RijndaelManaged();
@@ -51,7 +50,7 @@ namespace MeiPassword.BackgroundSysteme
         public static void Decrypter(string inputFile, string outputFile)
         {
             byte[] passwordBytes = System.Text.Encoding.UTF8.GetBytes(Algorythmen.Auth_Class_System.password_crypt);
-            byte[] salt = GenerateRandomSalt();
+            byte[] salt = new byte[saltss];
             FileStream cryptfiles = new FileStream(inputFile, FileMode.Open);
             cryptfiles.Read(salt, 0, salt.Length);
             RijndaelManaged ert = new RijndaelManaged();
@@ -104,22 +103,5 @@ namespace MeiPassword.BackgroundSysteme
             }
         }
 
-        public static byte[] GenerateRandomSalt()
-        {
-           
-            byte[] data = new byte[salt];
-
-            using (RNGCryptoServiceProvider rng = new RNGCryptoServiceProvider())
-            {
-                for (int i = 0; i < 10; i++)
-                {
-                    rng.GetBytes(data);
-                }
-            }
-
-            return data;
-        }
-
-       
     }
 }
