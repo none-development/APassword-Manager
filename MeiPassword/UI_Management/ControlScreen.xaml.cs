@@ -217,7 +217,6 @@ namespace MeiPassword.UI_Management
                     var MyIni = new IniFile(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
                     MyIni.Write("USERNAMEEMAIL", email, "DATA");
                     MyIni.Write("PASSWORDPASS", passwort_save, "DATA");
-                    CheckData(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
                     try
                     {
                         FileObfusicator.Crypto(PathFinding.PASSWORDFOLDER + $"{filename}.ini");

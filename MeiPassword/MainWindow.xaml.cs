@@ -19,6 +19,7 @@ namespace MeiPassword
         private protected string pepper = "BisWQGz6G_ntJdjd55wadTBbGSoR9ygvjhHFö.7474";
         private protected string sugar = "}98d874//%&";
         private readonly string pw = "31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSI31xZpgRO#5pC1c-cI{-EOj%sCmz9OtUx9fryUuGPCGxqD%#dnlK1%xAs2fwcMsaMHYcuREnwvnbhRNLEnwvDF3zlC%+P%DctGIGL{KrF-wfQv28K1PUz-4gn9XPSIie";
+        
         public MainWindow()
         {
            
@@ -36,10 +37,10 @@ namespace MeiPassword
             priv2 = Boolean.Parse(music);
             if (!priv)
             {
-                var msg = new ModernMessageBox("Diese Programm Speichert und Verschlüsselt ihre Passwörter.\n Wenn die Master Passwörter Verloren gehen gibt es keine Möglichkeiten die Passwörter wiederherzustellen\n", "Azusa Passwort Meneger Massege", ModernMessageboxIcons.Info, "Okay")
+                var msg = new ModernMessageBox(welcome(), "Azusa Passwort Meneger Massege", ModernMessageboxIcons.Info, "Okay")
                 {
                     Button1Key = Key.D1,
-                    CheckboxText = "Ich habe Verstanden",
+                    CheckboxText = "Okey",
                     CheckboxVisibility = Visibility.Visible,
 
                 };
@@ -158,6 +159,17 @@ namespace MeiPassword
             if (data == 0) german();
         }
 
+        private string welcome()
+        {
+            string b = "";
+            int data = Check_Start.checkvaleu();
+            if (data == 1)
+                b = "This program stores and encrypts your passwords.\n If the master passwords are lost there is no way to recover the passwords.";
+            if (data == 0)
+                b = "Diese Programm Speichert und Verschlüsselt ihre Passwörter.\n Wenn die Master Passwörter Verloren gehen gibt es keine Möglichkeiten die Passwörter wiederherzustellen\n";
+            return b;
+        }
+
         void englisch()
         {
             titel_wel.Content = "WELCOME";
@@ -165,6 +177,7 @@ namespace MeiPassword
             des2.Content = "or specify a new one to save some";
             pw_text.Content = "Password";
             Speicher_Es.Content = "Autologin (Uncertain, not recommended)";
+            
         }
 
         void german()

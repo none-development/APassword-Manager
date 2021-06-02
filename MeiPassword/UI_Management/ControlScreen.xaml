@@ -51,8 +51,8 @@
             <TextBox x:Name="FileName" HorizontalAlignment="Left" Height="23" Margin="431,275,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="351" Grid.ColumnSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"/>
             <Border BorderThickness="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="4" Margin="379,301,0,0" VerticalAlignment="Top" Width="403" Background="White"/>
             <Label x:Name="name_pwg" Content="Name:" HorizontalAlignment="Left" Margin="379,275,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="47" Foreground="White"/>
-            <Button x:Name="EntschluesselSelected" Content="Entschlüsseln" HorizontalAlignment="Left" Margin="379,409,0,0" VerticalAlignment="Top" Width="220" Height="23" Background="#FF30309E" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" ToolTip="Entschlüsse und Zeige ein Verschlüsseltes Passwort an" Click="EntschluesselSelected_Click"/>
-            <Button x:Name="deleteselected" Content="Lösche Password" HorizontalAlignment="Left" Margin="604,409,0,0" VerticalAlignment="Top" Width="206" Height="23" Background="#FF232327" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" ToolTip="Lösche das ausgewählte Passwort" Click="deleteselected_Click"/>
+            <Button x:Name="EntschluesselSelected" Content="Entschlüsseln" HorizontalAlignment="Left" Margin="379,409,0,0" VerticalAlignment="Top" Width="220" Height="23" Background="#FF8B66CD" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" ToolTip="Entschlüsse und Zeige ein Verschlüsseltes Passwort an" Click="EntschluesselSelected_Click"/>
+            <Button x:Name="deleteselected" Content="Lösche Password" HorizontalAlignment="Left" Margin="604,409,0,0" VerticalAlignment="Top" Width="206" Height="23" Background="#FFDC1A1A" Foreground="White" Grid.Column="1" Style="{StaticResource Corner}" ToolTip="Lösche das ausgewählte Passwort" Click="deleteselected_Click"/>
         </Grid>
     </Border>
 </Window>
