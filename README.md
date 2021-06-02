@@ -59,6 +59,7 @@ Please report this.
 - [x] Support English
 - [x] Language selection
 - [x] Webpage
+- [x] Custom Password Save Spot
 - [ ] Color Settings
 - [ ] Custom Path for passwords
 - [ ] Adroid App
