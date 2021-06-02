@@ -44,7 +44,7 @@ namespace MeiPassword.UI_Management
         private void Copy_EmailPass_Click(object sender, RoutedEventArgs e)
         {
             Clipboard.Clear();
-            string username = Encoding.UTF8.GetString(Convert.FromBase64String(SaveSpace.CryptUsername));
+            string username = SaveSpace.CryptUsername;
             Clipboard.SetText(username);
             username = "";
             var msg = new ModernMessageBox("Deine Email/Username befindet sich in deiner Zwischenablage", "Application Info", ModernMessageboxIcons.Info, "Ok")
@@ -58,7 +58,7 @@ namespace MeiPassword.UI_Management
         {
             Clipboard.Clear();
 
-            string password = Encoding.UTF8.GetString(Convert.FromBase64String(SaveSpace.CryptPW));
+            string password = SaveSpace.CryptPW;
             Clipboard.SetText(password);
             password = "";
             

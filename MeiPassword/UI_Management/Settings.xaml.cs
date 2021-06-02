@@ -305,7 +305,7 @@ namespace MeiPassword.UI_Management
             dialog.ResetUserSelections();
             dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + @"\AppData\Roaming\";
             dialog.IsFolderPicker = true;
-            dialog.Title = @"Select Discord Folder";
+            dialog.Title = @"Select Password Folder";
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 info(dialog.FileName);

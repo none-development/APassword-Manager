@@ -176,10 +176,27 @@ namespace MeiPassword.UI_Management
         private void SaveNewPass_Click(object sender, RoutedEventArgs e)
         {
             bool b = false;
-            if(email_save.Text != "" && password_save.Password != ""  && FileName.Text != "")
+            bool result = Regex.IsMatch(FileName.Text, @".*[^\u0000-\u007F].*");
+            if (FileName.Text.Length > 13)
             {
-                string email = Convert.ToBase64String(Encoding.UTF8.GetBytes(email_save.Text));
-                string passwort_save = Convert.ToBase64String(Encoding.UTF8.GetBytes(password_save.Password));
+                CheckData("The name of the password is too long");
+                password_save.Clear();
+                email_save.Clear();
+                return;
+            }
+            if (result == true)
+            {
+                CheckData("Special signs are not allowed");
+                password_save.Clear();
+                email_save.Clear();
+                return;
+            }
+            if (email_save.Text != "" && password_save.Password != ""  && FileName.Text != "")
+            {
+                string email = email_save.Text;
+                string passwort_save = password_save.Password;
+
+
                 string filename = FileName.Text;
                 foreach(string file in files())
                 {
@@ -200,10 +217,23 @@ namespace MeiPassword.UI_Management
                     var MyIni = new IniFile(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
                     MyIni.Write("USERNAMEEMAIL", email, "DATA");
                     MyIni.Write("PASSWORDPASS", passwort_save, "DATA");
-                    FileObfusicator.Crypto(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
+                    try
+                    {
+                        FileObfusicator.Crypto(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
+                    } catch(Exception x)
+                    {
+                        File.Delete(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
+                        CheckData(x.ToString());
+                    }
+                 
+                  
                     File.Move(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm", PathFinding.PASSWORDFOLDER + $"{filename}.apwm");
                     File.Delete(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm");
                     QModernMessageBox.Show($"password stored!", "Sucess!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
+                    password_save.Clear();
+                    email_save.Clear();
+                    email = "";
+                    passwort_save = "";
                     cleatlist();
                     listadd();
                     return;
@@ -218,8 +248,11 @@ namespace MeiPassword.UI_Management
         {
             foreach(string a in files())
             {
-                string b = Path.GetFileNameWithoutExtension(a);
-                Passwords.Items.Add(b);
+                if (a.Contains(".apwm"))
+                {
+                    string b = Path.GetFileNameWithoutExtension(a);
+                    Passwords.Items.Add(b);
+                }
             }
         }
 
@@ -230,6 +263,7 @@ namespace MeiPassword.UI_Management
 
         public static string[] files()
         {
+            
             string[] b = Directory.GetFiles(Algorythmen.PathFinding.PASSWORDFOLDER);
             return b;
         }
@@ -310,6 +344,14 @@ namespace MeiPassword.UI_Management
             SaveNewPass.ToolTip = "Speicher ein Passwort ab";
             EntschluesselSelected.ToolTip = "Entschlüsse und Zeige ein Verschlüsseltes Passwort an";
             deleteselected.ToolTip = "Lösche das ausgewählte Passwort";
+        }
+
+
+
+
+        public void CheckData(string data)
+        {
+            QModernMessageBox.Show($"{data}", "Error Appeard!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Warning);
         }
     }
 }
