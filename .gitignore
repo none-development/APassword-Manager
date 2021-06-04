@@ -224,3 +224,10 @@ project.lock.json
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
 Inno-Setup-Config.iss
+AudioAPI/AudioAPI/AudioAPI/Audios.resx
+AudioAPI/AudioAPI/AudioAPI/Resources/m1.wav
+AudioAPI/AudioAPI/AudioAPI/Resources/m2.wav
+AudioAPI/AudioAPI/AudioAPI/Resources/m3.wav
+AudioAPI/AudioAPI/wav_audios/m1.wav
+AudioAPI/AudioAPI/wav_audios/m2.wav
+AudioAPI/AudioAPI/wav_audios/m3.wav
