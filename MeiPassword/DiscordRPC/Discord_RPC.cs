@@ -6,15 +6,20 @@ using System.Threading.Tasks;
 using DiscordRPC;
 using MeiPassword.Algorythmen;
 using MeiPassword.ConfigsSystem;
+using Newtonsoft.Json;
 
 namespace MeiPassword.DiscordRPC
 {
-    public static class Discord_RPC
+    public class Discord_RPC
     {
-        public static DiscordRpcClient client;
+        public DiscordRpcClient client;
       
         static bool b { get; set; }
-        public static void start()
+
+
+
+
+        public void start()
         {
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
             string Discord = MyIni.Read("System", "DiscordRPC").ToString();
@@ -29,7 +34,7 @@ namespace MeiPassword.DiscordRPC
 
             if (b)
             {
-                rpc(true, false, false, false, true);
+                rpc();
             }
             else
             {
@@ -38,16 +43,14 @@ namespace MeiPassword.DiscordRPC
 
         }
 
-        public static void rpc(bool start, bool setting, bool menu, bool close, bool nothing)
+        public void rpc()
         {
             client = new DiscordRpcClient("838389755146010645");
             client.Initialize();
-            if (start)
-            {
                 client.ClearPresence();
                 client.SetPresence(new RichPresence()
                 {
-                    Details = "Using APM",
+                    Details = $"Using APM",
                     State = "Mainscreen",
                     Assets = new Assets()
                     {
@@ -57,54 +60,10 @@ namespace MeiPassword.DiscordRPC
                     },
                     Buttons = new Button[]
                         {
-                            
+                            new Button() { Label = "Get APM", Url = "https://github.com/Azusa-chxn/APassword-Manager" },
                             new Button() { Label = "Some Music", Url = "https://youtu.be/J8GMOKcpcj4" }
                         }
                 });
-            }
-            if (setting)
-            {
-                client.ClearPresence();
-                client.SetPresence(new RichPresence()
-                {
-                    Details = "Using APM",
-                    State = "Settings",
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "main",
-                        LargeImageText = "Azusa Passwort Manager",
-                        SmallImageKey = "1144911"
-                    },
-                    Buttons = new Button[]
-                    {
-                       
-                       new Button() { Label = "OwO", Url = "https://youtu.be/J8GMOKcpcj4" }
-                    }
-
-                });
-            }
-
-            if (menu)
-            {
-                client.ClearPresence();
-                client.SetPresence(new RichPresence()
-                {
-                    Details = "Using APM",
-                    State = "Login",
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "main",
-                        LargeImageText = "Azusa Passwort Manager",
-                        SmallImageKey = "1144911"
-                    },
-                    Buttons = new Button[]
-                    {
-                       
-                       new Button() { Label = "OwO", Url = "https://youtu.be/J8GMOKcpcj4" }
-                    }
-                });
-            }
-        
         }
     }
 }

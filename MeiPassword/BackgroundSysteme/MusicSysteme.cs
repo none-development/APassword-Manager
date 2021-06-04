@@ -8,6 +8,7 @@ using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using AudioAPI;
 
 namespace MeiPassword.BackgroundSysteme
 {
@@ -72,17 +73,17 @@ namespace MeiPassword.BackgroundSysteme
 
         public static void _tr1_()
         {
-              SoundPlayer sound = new SoundPlayer(MeiPassword.Audios.audiowav);
-              sound.PlayLooping();
+            SoundPlayer sound = new SoundPlayer(Audios.m3);
+            ssound.PlayLooping();
         }
         public static void _tr2s_()
         {
-            SoundPlayer sound = new SoundPlayer(MeiPassword.Audios.audiowav);
+            SoundPlayer sound = new SoundPlayer(Audios.m2);
             sound.PlayLooping();
         }
         public static void _default_()
         {
-            SoundPlayer sound = new SoundPlayer(MeiPassword.Audios.test2h);
+            SoundPlayer sound = new SoundPlayer(Audios.m1);
             sound.PlayLooping();
         }
 

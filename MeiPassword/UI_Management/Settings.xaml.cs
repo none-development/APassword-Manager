@@ -31,7 +31,7 @@ namespace MeiPassword.UI_Management
         {
 
             InitializeComponent();
-            DiscordRPC.Discord_RPC.rpc(false, true, false, false, false);
+           
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
             string edsd = MyIni.Read("DiscordRPC", "System");
             string AutoLogin = MyIni.Read("AutoLogin", "System").ToString();
@@ -48,7 +48,7 @@ namespace MeiPassword.UI_Management
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
+          
             this.Close();
 
         }
@@ -204,6 +204,15 @@ namespace MeiPassword.UI_Management
             }
         }
 
+
+
+        private void savecolor_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
+
         private void EnableAudio()
         {
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
@@ -264,7 +273,9 @@ namespace MeiPassword.UI_Management
             OpenConfig.Content = "Open Config folder";
             saveset.Content = "Save";
             passwordfolder.Content = "Change password location";
-            color.Content = "Change color as HTML";
+            color.Content = "Backgroundcolor as HTML";
+            savecolor.Content = "Save";
+            background_color.Text = "#FF424242";
         }
 
         void german()
@@ -279,7 +290,9 @@ namespace MeiPassword.UI_Management
             OpenConfig.Content = "Öffne Config Ordner";
             saveset.Content = "Speichern";
             passwordfolder.Content = "Ändere Passwort Speicherort";
-            color.Content = "Farbe als HTML";
+            color.Content = "Hintergrundfarbe als HTML";
+            savecolor.Content = "Speichern";
+            background_color.Text = "#FF424242";
         }
 
 
@@ -317,5 +330,7 @@ namespace MeiPassword.UI_Management
         {
             QModernMessageBox.Show($"Info:\n{Message}", "Application Information", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
         }
+
+    
     }
 }

@@ -23,13 +23,13 @@ namespace MeiPassword.UI_Management
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
             rename(); listadd();
-            DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
+            
         }
 
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, false, true, false);
+         
             System.Environment.Exit(1);
         }
 
