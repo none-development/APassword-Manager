@@ -32,15 +32,15 @@ Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc
 
 # FAQ
 
-***How can I bring my own features as an idea?***
+**How can I bring my own features as an idea?**
 
 You can add your own ideas in the Discussions tap. You can also create an Issues and share your ideas or others there.
 
-***Is there a premium version?***
+**Is there a premium version?**
 
 No, will also never be.
 
-***I have found a bug***
+**I have found a bug**
 
 Please report this.
 
@@ -49,6 +49,24 @@ Please report this.
 ### All Feature (v0.2)
 * Support now English 
 * Bug Fix
+
+
+# Music Pack API
+
+Since the creation of APM there was a feature to run music in the background. 
+
+The songs are now stored externally and can be changed. 
+
+You can find a project in this projecrt under Music API. 
+
+The audios when you add them to the program must fulfill the following:
+
+- Type: .wav
+- Name Audio 1: `m1`
+- Name Audio 2: `m2`
+- Name Audio 3: `m3`
+
+
 
 # Future Updates
 
@@ -59,7 +77,8 @@ Please report this.
 - [x] Support English
 - [x] Language selection
 - [x] Webpage
-- [x] Custom Password Save Spot
+- [x] Portable Version
+- [x] Audio API System
 - [ ] Color Settings
 - [ ] Custom Path for passwords
 - [ ] Adroid App

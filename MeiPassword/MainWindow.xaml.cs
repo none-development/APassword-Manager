@@ -62,7 +62,8 @@ namespace MeiPassword
             }
             if (Discord)
             {
-                DiscordRPC.Discord_RPC.rpc(true, false, false, false, false);
+                DiscordRPC.Discord_RPC DISCORD = new DiscordRPC.Discord_RPC();
+                DISCORD.start();
             }
             if (AutoLogins)
             {
@@ -118,7 +119,7 @@ namespace MeiPassword
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, false, true, false);
+           
             System.Environment.Exit(1);
         }
 

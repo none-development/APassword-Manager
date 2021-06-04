@@ -24,7 +24,7 @@ namespace MeiPassword.UI_Management
         {
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
-            DiscordRPC.Discord_RPC.rpc(false, false, false, false, true);
+          
             rename();
         }
         private void CloseButton_Click(object sender, RoutedEventArgs e)
