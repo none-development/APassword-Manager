@@ -26,8 +26,7 @@ Donate with BTC: `bc1qmvkx8ef6365np8372sdqy4r8k2ez8zzz3n5nzd`
 # Download
 Dowload on [Webpage](https://simp-to.me/)
 
-
-Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc2ad.onion/) 
+Dowload on [GitHub](https://github.com/Azusa-chxn/APassword-Manager/releases) 
 
 # FAQ
 
