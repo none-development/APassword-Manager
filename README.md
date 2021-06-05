@@ -44,9 +44,8 @@ Please report this.
 
 # Feature List
 
-### All Feature (v0.2)
-* Support now English 
-* Bug Fix
+### All Feature (v1.1)
+* Some Features Added
 
 
 # Music Pack API
@@ -79,7 +78,8 @@ The audios when you add them to the program must fulfill the following:
 - [x] Webpage
 - [x] Portable Version
 - [x] Audio API System
-- [ ] Color Settings
+- [ ] Theme Creator Menu
+- [ ] Updater
 - [ ] Custom Path for passwords
 - [ ] Adroid App
 - [ ] Show Discord Name on it
