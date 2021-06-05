@@ -23,6 +23,8 @@ Follow me on [Github](https://github.com/Azusa-chxn)
 
 Donate with BTC: `bc1qmvkx8ef6365np8372sdqy4r8k2ez8zzz3n5nzd`
 
+Send me a Mail: `dev@simp-to.me`
+
 # Download
 Dowload on [Webpage](https://simp-to.me/)
 
