@@ -1,100 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <SCRIPT LANGUAGE=JavaScript>
-            var message = "APM";
-            var reps = 2;
-            var speed = 400; 
-            var p = message.length;
-            var T = "";
-            var C = 0;
-            var mC = 0;
-            var s = 0;
-            var sT = null;
-        if (reps < 1) reps = 1;
-                function doTheThing() {
-                T = message[mC];
-                A();
-                }
-        function A() {
-                s++;
-                if (s > 20) { s = 1;}
-                if (s == 1) { document.title = '╟APM──────────╢' + " ooo"; }
-                if (s == 2) { document.title = '╟─APM─────────╢' + " ooo"; }
-                if (s == 3) { document.title = '╟──APM────────╢' + " Ooo"; }
-                if (s == 4) { document.title = '╟───APM───────╢' + " oOo"; }
-                if (s == 5) { document.title = '╟────APM──────╢' + " ooO"; }
-                if (s == 6) { document.title = '╟─────APM─────╢' + " Ooo"; }
-                if (s == 7) { document.title = '╟──────APM────╢' + " oOo"; }
-                if (s == 8) { document.title = '╟────────APM──╢' + " ooO"; }
-                if (s == 9) { document.title = '╟─────────APM─╢' + " Ooo"; }
-                if (s == 10) { document.title = '╟──────────APM╢' + " oOo"; }
-                if (s == 11) { document.title = '╟──────────APM╢' + " ooO"; }
-                if (s == 12) { document.title = '╟─────────APM─╢' + " Ooo"; }
-                if (s == 13) { document.title = '╟────────APM──╢' + " oOo"; }
-                if (s == 14) { document.title = '╟───────APM───╢' + " ooO"; }
-                if (s == 15) { document.title = '╟──────APM────╢' + " Ooo"; }
-                if (s == 16) { document.title = '╟─────APM─────╢' + " oOo"; }
-                if (s == 17) { document.title = '╟────APM──────╢' + " ooO"; }
-                if (s == 18) { document.title = '╟───APM───────╢' + " Ooo"; }
-                if (s == 19) { document.title = '╟──APM────────╢' + " oOo"; }
-                if (s == 20) { document.title = '╟─APM─────────╢' + " ooO"; }
-                if (C < (20 * reps)) {
-                    sT = setTimeout("A()", speed);
-                C++;
-        }
-        else {
-            C = 0;
-            s = 0;
-            mC++;
-            if(mC > p - 1) mC = 0;
-            sT = null;
-            doTheThing();
-            }
-        }
-        doTheThing();
-
-        </script> 
-    <!-- Primary Meta Tags -->
-    <title>APassword Manager</title>
-    <meta name="title" content="APassword Manager">
-    <meta name="description" content="A Password manager for Windows. Free and open Source!">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://xn--m9ha37aaaaa.simp-to.me/">
-    <meta property="og:title" content="APassword Manager">
-    <meta property="og:description" content="A Password manager for Windows. Free and open Source!">
-    <meta property="og:image" content="https://media1.tenor.com/images/e3d74c47cafa47bec8717ee51c3f8ae2/tenor.gif">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://xn--m9ha37aaaaa.simp-to.me/">
-    <meta property="twitter:title" content="APassword Manager">
-    <meta property="twitter:description" content="A Password manager for Windows. Free and open Source!">
-    <meta property="twitter:image" content="https://media1.tenor.com/images/e3d74c47cafa47bec8717ee51c3f8ae2/tenor.gif">
-      <!-- End META -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="./js/circle.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>APM</title> 
+     <!-- Open Graph / Facebook -->
+     <meta property="og:type" content="website">
+     <meta property="og:url" content="https://xn--m9ha37aaaaa.simp-to.me/">
+     <meta property="og:title" content="APassword Manager">
+     <meta property="og:description" content="A Password manager for Windows. Free and open Source!">
+     <meta property="og:image" content="https://media1.tenor.com/images/e3d74c47cafa47bec8717ee51c3f8ae2/tenor.gif">
+ 
+     <!-- Twitter -->
+     <meta property="twitter:card" content="summary_large_image">
+     <meta property="twitter:url" content="https://xn--m9ha37aaaaa.simp-to.me/">
+     <meta property="twitter:title" content="APassword Manager">
+     <meta property="twitter:description" content="A Password manager for Windows. Free and open Source!">
+     <meta property="twitter:image" content="https://media1.tenor.com/images/e3d74c47cafa47bec8717ee51c3f8ae2/tenor.gif">
+       <!-- End META -->
+       
+    <link rel="stylesheet" href="./css/index.min.css?ver<%=Math.floor(Math.random() * 1000 * 1000)%>">  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js" integrity="sha512-gQVBYBvfC+uyor5Teonjr9nmY1bN+DlOCezkhzg4ShpC5q81ogvFsr5IV4xXAj6HEtG7M1Pb2JCha97tVFItYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.js" integrity="sha512-tmdOKTY7I6MOUcCL/9fa4s+BnBCgEuifJImOX46m36+rxVMcgHEPGLVoCXHR6ZvjcKGoVixEiBKE4LcYLnv0Cw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="./css/indes.main.css">
-    <script src="./js/audio.min.js"></script>
-    <script src="./js/consoletroller.azusa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://res.cloudinary.com/veseylab/raw/upload/v1613706377/magicmouse/magic-mouse-1.1.css" />
+    <script src="//daybrush.com/scenejs/release/latest/dist/scene.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="./js/background.js?ver_<%=Math.floor(Math.random() * 1000 * 1000)%>"></script>
+    <script src="./js/typedeffect.js?ver_<%=Math.floor(Math.random() * 1000 * 1000)%>"></script>
+    <script src="./js/consoletroller.azusa.js?ver_<%=Math.floor(Math.random() * 1000 * 1000)%>"></script>
 </head>
 <body>
-    <div id="canvas" class="over"></div>
-    <div class="intro">
-        <h1>APassword Manager</h1>
-        <p>Download</p>
-        <a href="./files/installer.exe" class="btn" download>Download APM</a>
-        <a href="https://github.com/Azusa-chxn/Azusa-Password-Manager" class="btn" target="_blank">Source Code</a>
+<section id="screen1">
+    <div id="canvas" class="header_img"><h1 class="APM">APM</h1></div>
+	<nav>
+		 <ul>
+         
+   <li><a href="#" id="textcolor" class="magic-hover magic-hover__square">Home</a></li>
+		 	  <li><a href="#screen4" id="textcolor3" class="magic-hover magic-hover__square">Projects</a></li>
+		 	  <li><a href="#screen3" id="textcolor4" class="magic-hover magic-hover__square">People</a></li>
+               <li><a href="https://github.com/Azusa-chxn/APassword-Manager" id="textcolor2" class="magic-hover magic-hover__square">Github</a></li>
+		 </ul>
+	</nav>
+
+</section>
+<section id="screen2">
+    <br><br><br><br><br><br> <br><br><br><br><br><br>
+    <div class="BoxedText">Made for great customization options, own designs and music packs. APM save it local in encrypted single files. You can encrypt each password with a different pin or you can encrypt everything to a master pin and password.
+        Completely Free and Completely Open Source!
+    </div><br>
+    <img src="./css/image.png" alt="ATM Screenshot" class="images" id="image">
+    <img src="./css/image2.png" alt="ATM Screenshot" class="images" id="image">
+</section>
+<section id="screen3">
+<div class="typedbox"><div class="typed2">Made with: <div id="typed" class="typed"></div></div></div><br><br><br><br>
+<a href="./files/APM_Installer_Windows.exe" class="download text magic-hover magic-hover__square" download>Download Installer</a> 
+<a class="download"> | </a> 
+<a href="./files/AudioAPI-Developerkit.zip" class="download text magic-hover magic-hover__square" download>Download Music API</a> 
+<a class="download"> | </a> 
+<a href="https://github.com/Azusa-chxn/APassword-Manager" class="download text magic-hover magic-hover__square" target="_blank">See Project on Github</a><br><br><br><br>
+<a href="./files/Sniper.plugin.zip" class="download text magic-hover magic-hover__square" download>Download N-Sniper</a> 
+</section>
+<section id="screen4" class="selection4">
+    <footer>
+        <div class="link--div">Design: </div>
+        <a href="https://github.com/Azusa-chxn" class="link magic-hover magic-hover__square">Azusa</a>
+        <div class="link--div"> | </div>
+        <div class="link--div">Contact:<a href="mailto:admin@simp-to.me" class="link magic-hover magic-hover__square">admin@simp-to.me</a></div>
       
-    </div>
-    <div class="footer-sound" id="sound">
-        <span id="bar-1" class="sbar noAnim"></span>
-        <span id="bar-2" class="sbar noAnim"></span>
-        <span id="bar-3" class="sbar noAnim"></span>
-        <span id="bar-4" class="sbar noAnim"></span>
-    </div>
-    <audio id="audio" autoplay="true"></audio>
-    <script src="./js/particle.js"></script>
+    </footer>
+</section>
+<audio id="audio" autoplay muted></audio>
+<script src="./js/audio.min.js?ver<%=Math.floor(Math.random() * 1000 * 1000)%>"></script>
+<script src="./js/particle.js?ver<%=Math.floor(Math.random() * 1000 * 1000)%>"></script>
+<script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1613706377/magicmouse/magic_mouse-1.1.js"></script>
+<script type="text/javascript">
+    options = {
+        "cursorOuter": "circle-basic",
+        "hoverEffect": "circle-move",
+        "hoverItemMove": false,
+        "defaultCursor": false,
+        "outerWidth": 30,
+        "outerHeight": 30
+      };
+    magicMouse(options);
+</script> 
 </body>
+</html>

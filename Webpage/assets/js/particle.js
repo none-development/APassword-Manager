@@ -86,3 +86,4 @@ function onWindowResize(){
 }
 
 
+console.log

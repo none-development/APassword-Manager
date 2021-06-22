@@ -57,7 +57,6 @@ namespace MeiPassword.DiscordRPC
                 public int partyMax;
                 public IntPtr matchSecret; /* max 128 bytes */
                 public IntPtr joinSecret; /* max 128 bytes */
-                public IntPtr spectateSecret; /* max 128 bytes */
                 public bool instance;
             }
 

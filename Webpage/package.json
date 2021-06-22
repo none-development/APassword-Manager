@@ -1,7 +1,7 @@
 {
-  "name": "apm",
+  "name": "APassword Manager",
   "version": "1.0.0",
-  "description": "Webpage for the APasswordManager",
+  "description": "Webpage for the APasswordManager. Made by NONE and Matome",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",

@@ -1,0 +1,625 @@
+/*CSS Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Gruppo&family=Montserrat+Subrayada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&display=swap');
+
+/*ECT*/
+
+body .magic-hover {
+    z-index: 999999;
+   
+}
+body #magicPointer {
+    z-index: 999999;
+ };
+body #magicPointer.is-hover {
+    background: rgb(55, 0, 255)!important; 
+}
+
+body #magicMouseCursor.cursor-square {
+    border-radius: 5px!important;
+    border-color: hsl(var(--hue,0),100%,50%)!important;
+    grid-column: span 5;
+    animation-name: hue;
+}
+
+body #magicMouseCursor {
+    border-radius: 25px!important;
+} 
+
+/*Scrollbar and general setups*/
+
+::-webkit-scrollbar-track {
+    border-radius: 50px !important;
+    background: rgba(255, 255, 255, 0.192);
+}
+
+::-webkit-scrollbar {
+    border-radius: 50px !important;
+    width: 7px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 50px !important;
+    background-color: #0e4391;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    color: rgb(255, 255, 255);
+    background-color: #000000;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Gruppo', cursive;
+}
+
+
+/* Scroll Classes*/
+
+.fixed {
+    position: fixed;
+    top: 0;
+    height: 50px;
+    z-index: 1;
+    animation: fixed 1.5s ease-in;
+}
+
+
+/* Navigation Settings */
+
+a {
+    text-decoration: none;
+}
+
+.APM {
+    position: absolute;
+    margin-top: 18%;
+    width: 100%;
+    height: 70px;
+    font-size: 50px;
+    letter-spacing: 12px;
+    font-family: 'Montserrat Subrayada', sans-serif;
+}
+ 
+
+nav {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: rgb(0, 0, 0);
+   
+}
+
+.background {
+    color: rgb(255, 255, 255);
+    background: #0e4391;
+}
+
+.background2 {
+    color: rgb(255, 255, 255);
+    background: #10151b;
+}
+
+nav li {
+    display: inline-block;
+    padding: 18px 10px;
+}
+
+nav li a {
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+section {
+    height: 100vh;
+}
+
+.navfadein {
+    animation: navblackback 1s ease-in;
+}
+
+.backgroundchzange {
+
+    animation: backgroundchange 2s ease-in;
+}
+.returnblack {
+    animation: returnblack 1s ease-in;
+}
+/* Screens Settings */
+
+#screen1 {
+    background: #00000000;
+}
+
+#screen1 p {
+    padding-top: 200px;
+}
+
+#screen2 {
+    background: #00000000;
+}
+
+#screen3 {
+    background: #00000000;
+    height: 500px;
+}
+
+.typed {
+    display: inline-block;
+    text-align: left;
+    color: rgb(238, 255, 0);
+    font-size: 23px;
+    margin: auto;
+}
+.typed2 {
+    text-align: left;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    margin: auto;
+}
+
+.BoxedText {
+    height: 70px;
+    width: 800px;
+    margin: auto;
+    overflow: hidden!important;
+}
+
+.images {
+    height: 230px;
+    width: 400px;
+    padding: 10px;
+    margin: auto;
+    overflow: hidden!important;
+}
+
+.typedbox {
+    height: 45px;
+    width: 600px;
+    margin: auto;
+    overflow: hidden!important;
+}
+
+/*Footer*/
+
+footer {
+    font-size: 25px;
+    margin: 20px 0 0;
+    background: #0e4391;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    letter-spacing: 2px;
+}
+
+
+.link {
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-size: 15px!important;
+    padding: 9px 10px;
+}
+
+.link--div {
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    font-size: 15px!important;
+    padding: 9px 10px;
+}
+
+.link:hover {
+    animation: link 3s ease-in-out infinite;
+    background-image: url(https://i.imgur.com/CS9dLjS.gif) 20px;
+}
+
+.header_img {
+    width: 100%;
+    height: 98%;
+    overflow: hidden!important;
+}
+
+.selection4{
+    height: 20px;
+}
+
+/*Amderes*/
+.download {
+    font-size: 20px;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+}
+
+.text {
+    letter-spacing: 2px;
+    font-size: 23px;
+}
+
+.download:hover {
+    color: #fff;
+    animation: download 3s ease-in-out infinite;
+    background-image: url(https://i.imgur.com/CS9dLjS.gif) 20px;
+}
+
+/*Ausgabe und suchfunktion */
+
+
+input {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding-right: 50px;
+    box-sizing: border-box;
+    height: 50px;
+    border: 0;
+    font-size: 30px;
+    background: transparent;
+    color: rgb(0, 0, 0);
+    outline: none;
+}
+
+button {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+}
+
+.searchbox {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 600px;
+    height: 60px;
+    overflow: hidden;
+}
+
+
+@media only screen and (max-width: 520px) {
+    nav li {
+        padding: 24px 4px;
+    }
+    nav li a {
+        font-size: 14px;
+    }
+}
+
+.ausgabe {
+    color: #000000;
+    position: relative;
+    font-size: 25px!important;
+    text-align: left;
+}
+
+.line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 3px;
+    background: rgb(0, 0, 0);
+}
+
+.submit {
+    -webkit-appearance: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.submit::before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    left: 10%;
+    top: 10%;
+    box-sizing: border-box;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 50%;
+}
+
+.submit::after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 14px;
+    background: rgb(0, 0, 0);
+    transform-origin: 50% 0%;
+    transform: rotate(-45deg);
+    top: 60%;
+    left: 60%;
+}
+
+.color {
+    color: #ffff;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scrollbar {
+    overflow: scroll;
+    height: 320px;
+    width: 600px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.055);
+    overflow-x: hidden!important;
+    border-radius: 5px;
+    border: 2px solid #0e4391;
+}
+
+
+
+/* Animations */
+
+@keyframes hue {
+    0% {
+      --hue: 0!important;
+    }
+    100% {
+      --hue: 360!important;
+    }
+  }
+
+@keyframes rgb_anim {
+	from {
+		border-color: hue-rotate(0deg)!important;
+	}
+	50% {
+		border-color: hue-rotate(360deg)!important;
+	}
+	to {
+		border-color: hue-rotate(0deg)!important;
+	}
+}
+
+@keyframes link {
+    0% {
+        color: rgb(255, 255, 255);
+    }
+    50% {
+        color: rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        color: rgb(255, 255, 255);
+    }
+}
+
+@keyframes download {
+    0% {
+        color: rgb(255, 255, 255);
+        text-shadow:0px 0px 20px #fff,0px 0px 5px #614ad3;
+    }
+    50% {
+        color: rgba(252, 206, 0, 0.5);
+    }
+    100% {
+        color: rgb(255, 255, 255);
+        text-shadow:0px 0px 20px #fff,0px 0px 40px #614ad3;
+    }
+}
+
+@keyframes navblackback {
+    0% {
+        background: #000000;
+        color: #ffff;
+       
+    }
+    50% {
+        background: #243042;
+        color: #000000;
+    }
+    100% {
+        background: #0e4391;
+        color: #fff;
+     
+    }
+}
+
+@keyframes backgroundchange {
+    0% {
+        background: #000000;      
+    }
+    100% {
+        background: #10151b;
+    }
+}
+
+@keyframes returnblack {
+    0% {
+        background: #10151b;      
+    }
+    100% {
+        background: #000000;
+    }
+}
+
+
+@keyframes fixed {
+    0%{
+        bottom: 0;
+    }
+    100%{
+        top: 0;
+    }
+}
+
+@keyframes glow {
+    from {
+        filter: drop-shadow(0 0 5px #f46744);
+      }
+      to {
+        filter: drop-shadow(0 0 20px #f44444);
+      }
+  }
+  
+
+/*Sound Toggle*/
+.sbar {
+    height: 1px;
+    width: 2px;
+    float: left;
+    background-color: #ffffff;
+    opacity: 1;
+    bottom: 5px;
+    position: absolute;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-play-state: running;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+    animation-duration: 500ms;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.sbar.noAnim {
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -o-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
+
+.sbar#bar-1 {
+    left: 0;
+    -webkit-animation-name: danceHeight1;
+    -webkit-animation-delay: 0ms;
+    animation-name: danceHeight1;
+    animation-delay: 0ms;
+}
+
+.sbar#bar-2 {
+    left: 4px;
+    -webkit-animation-name: danceHeight2;
+    -webkit-animation-delay: 300ms;
+    animation-name: danceHeight2;
+    animation-delay: 300ms;
+}
+
+.sbar#bar-3 {
+    left: 8px;
+    -webkit-animation-name: danceHeight3;
+    -webkit-animation-delay: 600ms;
+    animation-name: danceHeight3;
+    animation-delay: 600ms;
+}
+
+.sbar#bar-4 {
+    left: 12px;
+    -webkit-animation-name: danceHeight4;
+    -webkit-animation-delay: 900ms;
+    animation-name: danceHeight4;
+    animation-delay: 900ms;
+}
+
+
+.footer-sound {
+    text-align: center;
+    width: 18px;
+    position: fixed;
+    height: 18px;
+    margin-left: auto;
+    top: 2vh;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.footer-sound {
+    left: 96vw;
+    top: 3vh;
+    right: unset;
+}
+
+
+    @-webkit-keyframes danceHeight1 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 10px;
+    }
+}
+
+@-webkit-keyframes danceHeight2 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 12px;
+    }
+}
+
+@-webkit-keyframes danceHeight3 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 14px;
+    }
+}
+
+@-webkit-keyframes danceHeight4 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 8px;
+    }
+}
+
+@keyframes danceHeight1 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 10px;
+    }
+}
+
+@keyframes danceHeight2 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 12px;
+    }
+}
+
+@keyframes danceHeight3 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 14px;
+    }
+}
+
+@keyframes danceHeight4 {
+    from {
+        height: 1px;
+    }
+    to {
+        height: 8px;
+    }
+}
