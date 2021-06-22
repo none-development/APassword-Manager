@@ -1,7 +1,7 @@
 {
   "name": "APassword Manager",
   "version": "1.0.0",
-  "description": "Webpage for the APasswordManager. Made by NONE and Matome",
+  "description": "Webpage for the APasswordManager by NONE and Matome",
   "main": "main.js",
   "scripts": {
     "start": "node main.js",
@@ -10,13 +10,13 @@
   "author": "Azusa",
   "license": "ISC",
   "dependencies": {
-    "connect-flash": "^0.1.1",
-    "ddos": "^0.2.1",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "express-ejs-layouts": "^2.5.0"
+    "connect-flash": ">=0.1.1",
+    "ddos": ">=0.2.1",
+    "ejs": ">=3.1.6",
+    "express": ">=4.17.1",
+    "express-ejs-layouts": ">=2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": ">=2.0.7"
   }
 }
