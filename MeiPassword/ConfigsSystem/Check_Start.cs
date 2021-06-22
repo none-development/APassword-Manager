@@ -18,7 +18,6 @@ namespace MeiPassword.ConfigsSystem
             {
                 Directory.CreateDirectory(PathFinding.MAIN);
             }
-
             if (!Directory.Exists(PathFinding.PASSWORDFOLDER))
             {
                 Directory.CreateDirectory(PathFinding.PASSWORDFOLDER);
@@ -30,6 +29,10 @@ namespace MeiPassword.ConfigsSystem
             if (!Directory.Exists(PathFinding.MessageSpace))
             {
                 Directory.CreateDirectory(PathFinding.MessageSpace);
+            }
+            if (!Directory.Exists(PathFinding.THEMEFOLDER))
+            {
+                Directory.CreateDirectory(PathFinding.THEMEFOLDER);
             }
             if (!File.Exists(PathFinding.CONFIGFILE))
             {
@@ -60,7 +63,6 @@ namespace MeiPassword.ConfigsSystem
                 MyIni.Write("Track_3", "false", "TrackToRun");
 
             }
-
         }
 
         public static int checkvaleu()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using DiscordRPC;
@@ -9,102 +10,202 @@ using MeiPassword.ConfigsSystem;
 
 namespace MeiPassword.DiscordRPC
 {
-    public static class Discord_RPC
-    {
-        public static DiscordRpcClient client;
-      
-        static bool b { get; set; }
-        public static void start()
+   
+        public class DiscordRpc
         {
-            var MyIni = new IniFile(PathFinding.CONFIGFILE);
-            string Discord = MyIni.Read("System", "DiscordRPC").ToString();
-            if (Discord.Contains("true") && Discord.Contains("false"))
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void ReadyCallback(ref DiscordUser connectedUser);
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void DisconnectedCallback(int errorCode, string message);
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void ErrorCallback(int errorCode, string message);
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void JoinCallback(string secret);
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void SpectateCallback(string secret);
+
+            [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+            public delegate void RequestCallback(ref DiscordUser request);
+
+            public struct EventHandlers
             {
-                b = Boolean.Parse(Discord);
-            }
-            else
-            {
-                b = true;
+                public ReadyCallback readyCallback;
+                public DisconnectedCallback disconnectedCallback;
+                public ErrorCallback errorCallback;
+                public JoinCallback joinCallback;
+                public SpectateCallback spectateCallback;
+                public RequestCallback requestCallback;
             }
 
-            if (b)
+            [Serializable, StructLayout(LayoutKind.Sequential)]
+            public struct RichPresenceStruct
             {
-                rpc(true, false, false, false, true);
-            }
-            else
-            {
-                
+                public IntPtr state; /* max 128 bytes */
+                public IntPtr details; /* max 128 bytes */
+                public long startTimestamp;
+                public long endTimestamp;
+                public IntPtr largeImageKey; /* max 32 bytes */
+                public IntPtr largeImageText; /* max 128 bytes */
+                public IntPtr smallImageKey; /* max 32 bytes */
+                public IntPtr smallImageText; /* max 128 bytes */
+                public IntPtr partyId; /* max 128 bytes */
+                public int partySize;
+                public int partyMax;
+                public IntPtr matchSecret; /* max 128 bytes */
+                public IntPtr joinSecret; /* max 128 bytes */
+                public IntPtr spectateSecret; /* max 128 bytes */
+                public bool instance;
             }
 
-        }
-
-        public static void rpc(bool start, bool setting, bool menu, bool close, bool nothing)
-        {
-            client = new DiscordRpcClient("838389755146010645");
-            client.Initialize();
-            if (start)
+            [Serializable]
+            public struct DiscordUser
             {
-                client.ClearPresence();
-                client.SetPresence(new RichPresence()
+                public string userId;
+                public string username;
+                public string discriminator;
+                public string avatar;
+            }
+
+            public enum Reply
+            {
+                No = 0,
+                Yes = 1,
+                Ignore = 2
+            }
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_Initialize", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void Initialize(string applicationId, ref EventHandlers handlers, bool autoRegister, string optionalSteamId);
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_Shutdown", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void Shutdown();
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_RunCallbacks", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void RunCallbacks();
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_UpdatePresence", CallingConvention = CallingConvention.Cdecl)]
+            private static extern void UpdatePresenceNative(ref RichPresenceStruct presence);
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_ClearPresence", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void ClearPresence();
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_Respond", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void Respond(string userId, Reply reply);
+
+            [DllImport("discord-rpc", EntryPoint = "Discord_UpdateHandlers", CallingConvention = CallingConvention.Cdecl)]
+            public static extern void UpdateHandlers(ref EventHandlers handlers);
+
+            public static void UpdatePresence(RichPresence presence)
+            {
+                var presencestruct = presence.GetStruct();
+                UpdatePresenceNative(ref presencestruct);
+                presence.FreeMem();
+            }
+
+            public class RichPresence
+            {
+                private RichPresenceStruct _presence;
+                private readonly List<IntPtr> _buffers = new List<IntPtr>(10);
+
+                public string state; /* max 128 bytes */
+                public string details; /* max 128 bytes */
+                public long startTimestamp;
+                public long endTimestamp;
+                public string largeImageKey; /* max 32 bytes */
+                public string largeImageText; /* max 128 bytes */
+                public string smallImageKey; /* max 32 bytes */
+                public string smallImageText; /* max 128 bytes */
+                public string partyId; /* max 128 bytes */
+                public int partySize;
+                public int partyMax;
+                public string matchSecret; /* max 128 bytes */
+                public string joinSecret; /* max 128 bytes */
+                public string spectateSecret; /* max 128 bytes */
+                public bool instance;
+
+
+                internal RichPresenceStruct GetStruct()
                 {
-                    Details = "Using APM",
-                    State = "Mainscreen",
-                    Assets = new Assets()
+                    if (_buffers.Count > 0)
                     {
-                        LargeImageKey = "main",
-                        LargeImageText = "Azusa Passwort Manager",
-                        SmallImageKey = "1144911"
-                    },
-                    Buttons = new Button[]
-                        {
-                            
-                            new Button() { Label = "Some Music", Url = "https://youtu.be/J8GMOKcpcj4" }
-                        }
-                });
-            }
-            if (setting)
-            {
-                client.ClearPresence();
-                client.SetPresence(new RichPresence()
-                {
-                    Details = "Using APM",
-                    State = "Settings",
-                    Assets = new Assets()
-                    {
-                        LargeImageKey = "main",
-                        LargeImageText = "Azusa Passwort Manager",
-                        SmallImageKey = "1144911"
-                    },
-                    Buttons = new Button[]
-                    {
-                       
-                       new Button() { Label = "OwO", Url = "https://youtu.be/J8GMOKcpcj4" }
+                        FreeMem();
                     }
 
-                });
-            }
+                    _presence.state = StrToPtr(state, 128);
+                    _presence.details = StrToPtr(details, 128);
+                    _presence.startTimestamp = startTimestamp;
+                    _presence.endTimestamp = endTimestamp;
+                    _presence.largeImageKey = StrToPtr(largeImageKey, 32);
+                    _presence.largeImageText = StrToPtr(largeImageText, 128);
+                    _presence.smallImageKey = StrToPtr(smallImageKey, 32);
+                    _presence.smallImageText = StrToPtr(smallImageText, 128);
+                    _presence.partyId = StrToPtr(partyId, 128);
+                    _presence.partySize = partySize;
+                    _presence.partyMax = partyMax;
+                    _presence.matchSecret = StrToPtr(matchSecret, 128);
+                    _presence.joinSecret = StrToPtr(joinSecret, 128);
+                    _presence.spectateSecret = StrToPtr(spectateSecret, 128);
+                    _presence.instance = instance;
 
-            if (menu)
-            {
-                client.ClearPresence();
-                client.SetPresence(new RichPresence()
+                    return _presence;
+                }
+
+                private IntPtr StrToPtr(string input, int maxbytes)
                 {
-                    Details = "Using APM",
-                    State = "Login",
-                    Assets = new Assets()
+                    if (string.IsNullOrEmpty(input))
                     {
-                        LargeImageKey = "main",
-                        LargeImageText = "Azusa Passwort Manager",
-                        SmallImageKey = "1144911"
-                    },
-                    Buttons = new Button[]
-                    {
-                       
-                       new Button() { Label = "OwO", Url = "https://youtu.be/J8GMOKcpcj4" }
+                        return IntPtr.Zero;
                     }
-                });
+
+                    var convstr = StrClampBytes(input, maxbytes);
+                    var convbytecnt = Encoding.UTF8.GetByteCount(convstr);
+                    var buffer = Marshal.AllocHGlobal(convbytecnt);
+                    _buffers.Add(buffer);
+                    Marshal.Copy(Encoding.UTF8.GetBytes(convstr), 0, buffer, convbytecnt);
+                    return buffer;
+                }
+
+                private static string StrToUtf8NullTerm(string toconv)
+                {
+                    var str = toconv.Trim();
+                    var bytes = Encoding.Default.GetBytes(str);
+                    if (bytes.Length > 0 && bytes[bytes.Length - 1] != 0)
+                    {
+                        str += "\0\0";
+                    }
+                    return Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(str));
+                }
+
+                private static string StrClampBytes(string toclamp, int maxbytes)
+                {
+                    var str = StrToUtf8NullTerm(toclamp);
+                    var strbytes = Encoding.UTF8.GetBytes(str);
+
+                    if (strbytes.Length <= maxbytes)
+                    {
+                        return str;
+                    }
+
+                    var newstrbytes = new byte[] { };
+                    Array.Copy(strbytes, 0, newstrbytes, 0, maxbytes - 1);
+                    newstrbytes[newstrbytes.Length - 1] = 0;
+                    newstrbytes[newstrbytes.Length - 2] = 0;
+
+                    return Encoding.UTF8.GetString(newstrbytes);
+                }
+
+
+                internal void FreeMem()
+                {
+                    for (var i = _buffers.Count - 1; i >= 0; i--)
+                    {
+                        Marshal.FreeHGlobal(_buffers[i]);
+                        _buffers.RemoveAt(i);
+                    }
+                }
             }
-        
         }
-    }
 }

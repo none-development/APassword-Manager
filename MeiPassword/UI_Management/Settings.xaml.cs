@@ -31,7 +31,7 @@ namespace MeiPassword.UI_Management
         {
 
             InitializeComponent();
-            DiscordRPC.Discord_RPC.rpc(false, true, false, false, false);
+            DiscordRPC.Discord_Stages.Settings();
             var MyIni = new IniFile(PathFinding.CONFIGFILE);
             string edsd = MyIni.Read("DiscordRPC", "System");
             string AutoLogin = MyIni.Read("AutoLogin", "System").ToString();
@@ -48,7 +48,7 @@ namespace MeiPassword.UI_Management
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
+            DiscordRPC.Discord_Stages.MainScreen();
             this.Close();
 
         }

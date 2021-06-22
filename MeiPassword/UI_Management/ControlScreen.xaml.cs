@@ -23,13 +23,12 @@ namespace MeiPassword.UI_Management
             InitializeComponent();
             this.MouseLeftButtonDown += delegate { DragMove(); };
             rename(); listadd();
-            DiscordRPC.Discord_RPC.rpc(false, false, true, false, false);
+            DiscordRPC.Discord_Stages.MainScreen();
         }
 
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, false, true, false);
             System.Environment.Exit(1);
         }
 
@@ -50,13 +49,17 @@ namespace MeiPassword.UI_Management
         {
             int zeichen = Int32.Parse(Anzahl_Zeichen.Text);
             string finish = "";
-            if (Chinese_check.IsChecked == false)
+            if(ascii_check.IsChecked == true)
             {
-                finish = RandomString(zeichen, false);
+                finish = RandomString(zeichen, false, true);
+            }
+            else if (Chinese_check.IsChecked == false)
+            {
+                finish = RandomString(zeichen, false, false);
             }
             else if(Chinese_check.IsChecked == true)
             {
-                finish = RandomString(zeichen, true);
+                finish = RandomString(zeichen, true, false);
             }
             Clipboard.SetText(finish);
             var msg = new ModernMessageBox("Your generated password is in your clipboard", "Application Info", ModernMessageboxIcons.Info, "Ok")
@@ -64,14 +67,14 @@ namespace MeiPassword.UI_Management
                 Button1Key = Key.D1,
             };
             msg.Show();
-
         }
 
-        private string RandomString(int length, bool chinese) 
+        private string RandomString(int length, bool chinese, bool ascii) 
         {
             Random rand = new Random();
             const string pool = "abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_{+-%#";
             const string poolchinese = "ㄓㄨㄥㄨㄣ中文字将制造款世界上最先进的飞机这是份非常简单的说明书abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_{+-;./%#";
+            const string asciipool = "ㄓㄨㄥㄨㄣ中文字将制造款世界上最先进的飞机这是份非常简单的说明书abcdefghijklmnopqrstuvwxyz123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_{+-;./%#⃠⸻☳⢯꞉〈〉《》【】〔〕〖〗〘〙〚〛〈〉«»‹›︷︸︹︺︻︼︽︾︿﹀〱〲「」『』︵︶﹁﹂﹃﹄﹙﹚﹛﹜﹝﹞﹤﹥（）＜＞｛｝❬❭❮❯❰❱｢｣⌃⌄⌵⑂⑃⑄[]{}⁅⁆⎡⎢⎣⎤";
             var builder = new StringBuilder();
 
             for (var i = 0; i < length; i++)
@@ -79,6 +82,10 @@ namespace MeiPassword.UI_Management
                 if (chinese)
                 {
                     var c = poolchinese[rand.Next(0, poolchinese.Length)];
+                    builder.Append(c);
+                } else if (ascii)
+                {
+                    var c = poolchinese[rand.Next(0, asciipool.Length)];
                     builder.Append(c);
                 }
                 else
@@ -224,9 +231,8 @@ namespace MeiPassword.UI_Management
                     {
                         File.Delete(PathFinding.PASSWORDFOLDER + $"{filename}.ini");
                         CheckData(x.ToString());
+                        return;
                     }
-                 
-                  
                     File.Move(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm", PathFinding.PASSWORDFOLDER + $"{filename}.apwm");
                     File.Delete(PathFinding.PASSWORDFOLDER + $"{filename}.ini.apwm");
                     QModernMessageBox.Show($"password stored!", "Sucess!", QModernMessageBox.QModernMessageBoxButtons.Ok, ModernMessageboxIcons.Info);
@@ -321,6 +327,7 @@ namespace MeiPassword.UI_Management
             SaveNewPass.ToolTip = "Save a password";
             EntschluesselSelected.ToolTip = "Decrypt and display an encrypted password";
             deleteselected.ToolTip = "Delete the selected password";
+            ascii_check.Content = "Ascii Symbols";
         }
 
         void german()
@@ -344,6 +351,7 @@ namespace MeiPassword.UI_Management
             SaveNewPass.ToolTip = "Speicher ein Passwort ab";
             EntschluesselSelected.ToolTip = "Entschlüsse und Zeige ein Verschlüsseltes Passwort an";
             deleteselected.ToolTip = "Lösche das ausgewählte Passwort";
+            ascii_check.Content = "Ascii Symbole";
         }
 
 

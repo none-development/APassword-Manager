@@ -37,7 +37,7 @@ namespace MeiPassword
             priv2 = Boolean.Parse(music);
             if (!priv)
             {
-                var msg = new ModernMessageBox(welcome(), "Azusa Passwort Meneger Massege", ModernMessageboxIcons.Info, "Okay")
+                var msg = new ModernMessageBox(welcome(), "Azusa Password Manager", ModernMessageboxIcons.Info, "Okay")
                 {
                     Button1Key = Key.D1,
                     CheckboxText = "Okey",
@@ -62,7 +62,7 @@ namespace MeiPassword
             }
             if (Discord)
             {
-                DiscordRPC.Discord_RPC.rpc(true, false, false, false, false);
+                DiscordRPC.Discord_Stages.login();
             }
             if (AutoLogins)
             {
@@ -87,7 +87,7 @@ namespace MeiPassword
             }
             if (PasswordCrypter.Password.Length > 15)
             {
-                Algorythmen.Auth_Class_System.password_crypt = sugar+PasswordCrypter.Password + pepper;
+                Algorythmen.Auth_Class_System.password_crypt = sugar + PasswordCrypter.Password + pepper;
             }
             if (Secure_key.Password != "")
             {
@@ -118,7 +118,6 @@ namespace MeiPassword
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            DiscordRPC.Discord_RPC.rpc(false, false, false, true, false);
             System.Environment.Exit(1);
         }
 
