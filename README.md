@@ -23,32 +23,51 @@ Follow me on [Github](https://github.com/Azusa-chxn)
 
 Donate with BTC: `bc1qmvkx8ef6365np8372sdqy4r8k2ez8zzz3n5nzd`
 
+Send me a Mail: `dev@simp-to.me`
+
 # Download
 Dowload on [Webpage](https://simp-to.me/)
 
-Dowload on [Hidden Webservice](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc2ad.onion/) 
-
-Dowload on [GitHub](http://bth2wb6pdafancznin7ecrjcga27s7aebeuuvsjodbkqglkbmqwhc2ad.onion/) 
+Dowload on [GitHub](https://github.com/Azusa-chxn/APassword-Manager/releases) 
 
 # FAQ
 
-***How can I bring my own features as an idea?***
+**How can I bring my own features as an idea?**
 
 You can add your own ideas in the Discussions tap. You can also create an Issues and share your ideas or others there.
 
-***Is there a premium version?***
+**Is there a premium version?**
 
 No, will also never be.
 
-***I have found a bug***
+**I have found a bug**
 
 Please report this.
 
 # Feature List
 
-### All Feature (v0.2)
-* Support now English 
-* Bug Fix
+### All Feature (v1.1)
+* Some Features Added
+
+
+# Music Pack API
+
+Download Developerpack: [Webpage](https://simp-to.me/)
+
+Since the creation of APM there was a feature to run music in the background. 
+
+The songs are now stored externally and can be changed. 
+
+You can find a project in this projecrt under Music API. 
+
+The audios when you add them to the program must fulfill the following:
+
+- Type: .wav
+- Name Audio 1: `m1`
+- Name Audio 2: `m2`
+- Name Audio 3: `m3`
+
+
 
 # Future Updates
 
@@ -59,8 +78,10 @@ Please report this.
 - [x] Support English
 - [x] Language selection
 - [x] Webpage
-- [x] Custom Password Save Spot
-- [ ] Color Settings
+- [x] Portable Version
+- [x] Audio API System
+- [ ] Theme Creator Menu
+- [ ] Updater
 - [ ] Custom Path for passwords
 - [ ] Adroid App
 - [ ] Show Discord Name on it
