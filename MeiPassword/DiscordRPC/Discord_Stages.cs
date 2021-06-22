@@ -22,6 +22,7 @@ namespace MeiPassword.DiscordRPC
             Presence.largeImageText = Discord_PRC_Helper.Limgt();
             Presence.smallImageKey = Discord_PRC_Helper.sik;
             Presence.smallImageText = Discord_PRC_Helper.thurl;
+
             DiscordRpc.UpdatePresence(Presence);
         }
         public static void MainScreen()

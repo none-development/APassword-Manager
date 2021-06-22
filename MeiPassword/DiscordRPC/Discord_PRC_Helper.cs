@@ -25,7 +25,7 @@ namespace MeiPassword.DiscordRPC
         }
 
         private static string[] images = { "1144911", "5565", "abbeb", "asdasda", "asddda", "cacgvee", "dada", "eddof", "main", "safasfas", "vdvs" };
-        private static string[] largedescription = { "Using APassword Manager", "https://simp-to.me/", "Made by NONE & Matome", "Weeby Discord RPC", ">.<", ":o" };
+        private static string[] largedescription = { "Using APassword Manager", "https://simp-to.me/", "Made by NONE & Matome", "Weeby Discord RPC", ">.<" };
         private static T PickRandom<T>(this List<T> enumerable)
         {
             int index = new System.Random().Next(0, enumerable.Count());
