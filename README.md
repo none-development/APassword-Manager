@@ -1,4 +1,4 @@
-# Azusa-Password-manager
+# APassword-manager
 
 
 <p align="center">
