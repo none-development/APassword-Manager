@@ -21,9 +21,7 @@ The passwords are stored locally, encrypted so that they cannot be decrypted eve
 
 Follow me on [Github](https://github.com/none-development)
 
-Developer 1 Discord: `ꋊꄲꋊꏂ#0001`
-
-Developer 2 Discord: `Matome#0001`
+Developers: NONE, Matome, Azusa
 
 Donate with BTC: `bc1qmvkx8ef6365np8372sdqy4r8k2ez8zzz3n5nzd`
 
